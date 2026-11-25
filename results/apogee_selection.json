@@ -1,0 +1,60 @@
+{
+ "T1": {
+  "wd_targets": 3563,
+  "wd_in_parent": 0.9986,
+  "lmc18_35_box": 2225,
+  "lmc18_35_in_parent": 1.0,
+  "pass": true
+ },
+ "T5_dJK": {
+  "LMC1-17 BrtRGB": -0.0022,
+  "LMC1-17 FntRGB": 0.0002,
+  "LMC18-35 BrtRGB": -0.0002,
+  "LMC18-35 FntRGB": 0.0003,
+  "pass": true
+ },
+ "T7_xp_closure": {
+  "LMC1-17 final": {
+   "<-1.0": 1.128,
+   "<-1.5": 1.613
+  },
+  "LMC1-17 no_pass": {
+   "<-1.0": 1.086,
+   "<-1.5": 1.414
+  },
+  "LMC18-35 final": {
+   "<-1.0": 1.024,
+   "<-1.5": 1.174
+  },
+  "LMC18-35 no_pass": {
+   "<-1.0": 0.987,
+   "<-1.5": 1.101
+  }
+ },
+ "T6_snr_neutrality": {
+  "snr>=30": {
+   "N": 4927,
+   "f_below_m15": 0.0195,
+   "f_below_m2": 0.0019
+  },
+  "snr>=50": {
+   "N": 4848,
+   "f_below_m15": 0.0196,
+   "f_below_m2": 0.0018
+  },
+  "snr>=70": {
+   "N": 4677,
+   "f_below_m15": 0.0192,
+   "f_below_m2": 0.0017
+  },
+  "pass": true
+ },
+ "summary": {
+  "candidates": 193418,
+  "covered": 16390,
+  "observed": 6387,
+  "quality": 5918,
+  "quality_covered": 5822,
+  "sum_w": 16407.6
+ }
+}

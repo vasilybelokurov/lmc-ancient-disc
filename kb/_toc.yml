@@ -1,0 +1,28 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Start here
+    chapters:
+      - file: getting_started
+  - caption: The five figures of the Letter
+    chapters:
+      - file: notebooks/letter/fig1_tracers
+      - file: notebooks/letter/fig2_rotational_support
+      - file: notebooks/letter/fig3_birth
+      - file: notebooks/letter/fig4_scrambling
+      - file: notebooks/letter/fig5_sidm
+  - caption: The full analysis
+    chapters:
+      - file: notebooks/chapters/data_samples
+      - file: notebooks/chapters/data_selection
+      - file: notebooks/chapters/data_calibration
+      - file: notebooks/chapters/mass
+      - file: notebooks/chapters/metallicity
+      - file: notebooks/chapters/kinematics_model
+      - file: notebooks/chapters/kinematics_support
+      - file: notebooks/chapters/kinematics_vc
+      - file: notebooks/chapters/kinematics_lowfeh
+      - file: notebooks/chapters/shape
+      - file: notebooks/chapters/sims_analogues
+      - file: notebooks/chapters/sims_evolution
+      - file: notebooks/chapters/getting_data

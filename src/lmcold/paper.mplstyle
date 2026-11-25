@@ -1,0 +1,22 @@
+# Paper figures (MNRAS): one column 3.3 in, two columns 7.0 in.
+font.family: serif
+font.serif: Times New Roman, Times, STIXGeneral, DejaVu Serif
+mathtext.fontset: stix
+font.size: 8
+axes.titlesize: 8
+axes.labelsize: 8
+legend.fontsize: 7
+xtick.labelsize: 7
+ytick.labelsize: 7
+xtick.direction: in
+ytick.direction: in
+xtick.top: True
+ytick.right: True
+xtick.minor.visible: True
+ytick.minor.visible: True
+axes.linewidth: 0.6
+lines.linewidth: 1.2
+legend.frameon: False
+savefig.dpi: 300
+savefig.bbox: tight
+figure.constrained_layout.use: True

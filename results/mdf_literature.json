@@ -1,0 +1,104 @@
+{
+ "scale_check": {
+  "BOSS - Cole+05": {
+   "n": 3,
+   "median": -0.20657124449146552,
+   "robust_sd": 0.14260541889877998
+  },
+  "APOGEE - Cole+05": {
+   "n": 0,
+   "median": null,
+   "robust_sd": null
+  },
+  "BOSS - Carrera+08": {
+   "n": 79,
+   "median": -0.18003809051620445,
+   "robust_sd": 0.3279683240927261
+  },
+  "APOGEE - Carrera+08": {
+   "n": 24,
+   "median": -0.26018839609970257,
+   "robust_sd": 0.18177407417275365
+  }
+ },
+ "(a) Bar": {
+  "Cole+05, Ca II triplet": {
+   "n": 373,
+   "median": -0.4,
+   "frac_above_m05": 0.7345844504021448,
+   "frac_below_m1": 0.064343163538874
+  },
+  "BOSS, as measured": {
+   "n": 571,
+   "median": -0.5327015699871201,
+   "frac_above_m05": 0.4229868798875301,
+   "frac_below_m1": 0.03498560991696838
+  },
+  "APOGEE": {
+   "n": 375,
+   "median": -0.6027100086212158,
+   "frac_above_m05": 0.22424400058471042,
+   "frac_below_m1": 0.09274120386979198
+  }
+ },
+ "(b) Fields 5, 6, 8$^\\circ$ north": {
+  "Carrera+08, Ca II triplet": {
+   "n": 344,
+   "median": -0.5867405780113178,
+   "frac_above_m05": 0.42441860465116277,
+   "frac_below_m1": 0.2558139534883721
+  },
+  "BOSS, as measured": {
+   "n": 626,
+   "median": -0.6275602984074776,
+   "frac_above_m05": 0.3101340722788899,
+   "frac_below_m1": 0.13712407918323768
+  },
+  "APOGEE": {
+   "n": 89,
+   "median": -0.6852361583612954,
+   "frac_above_m05": 0.10525243335309352,
+   "frac_below_m1": 0.12954456084790933
+  }
+ },
+ "(c) $\\rho<12^\\circ$, spectroscopic": {
+  "APOGEE, as targeted": {
+   "n": 5796,
+   "median": -0.7257899940013885,
+   "frac_above_m05": 0.07298136645962733,
+   "frac_below_m1": 0.18530020703933747
+  },
+  "APOGEE, weighted": {
+   "n": 5796,
+   "median": -0.6739112732856923,
+   "frac_above_m05": 0.1328762540354072,
+   "frac_below_m1": 0.13357085013309258
+  },
+  "BOSS, weighted, as measured": {
+   "n": 57557,
+   "median": -0.5881052194249288,
+   "frac_above_m05": 0.3344408496548664,
+   "frac_below_m1": 0.08249021060240237
+  }
+ },
+ "(d) Same BOSS giants, Gaia XP": {
+  "Omkumar+25, XP Str\u00f6mgren": {
+   "n": 31545,
+   "median": -0.6128462897217968,
+   "frac_above_m05": 0.40760054341560514,
+   "frac_below_m1": 0.22188243894328297
+  },
+  "Andrae+23, XP": {
+   "n": 31545,
+   "median": -0.8274635045610529,
+   "frac_above_m05": 0.08289433782627813,
+   "frac_below_m1": 0.30670452509091994
+  },
+  "BOSS, as measured": {
+   "n": 31545,
+   "median": -0.6394898324095886,
+   "frac_above_m05": 0.29326226596707233,
+   "frac_below_m1": 0.16584762600387923
+  }
+ }
+}

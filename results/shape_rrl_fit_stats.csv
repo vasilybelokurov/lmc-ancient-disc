@@ -1,0 +1,3 @@
+fit,inc,n_stars,n_cells,chi2_counts,chi2_medians,pearson_min,pearson_max,rms_modulus,median_se
+free,48.1408,13322,192,1067.2887,521.5675,-5.4080,8.5925,0.0281,0.0151
+ridge,25.0000,13322,192,1087.1166,567.7494,-6.1332,8.5906,0.0298,0.0151

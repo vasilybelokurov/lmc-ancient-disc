@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lmcold"
+version = "0.1.0"
+description = "Kinematics and 3D shape of the old LMC from RR Lyrae and red giants"
+requires-python = ">=3.12"
+dependencies = ["numpy", "jax", "pandas", "pyarrow", "astropy", "astroquery", "matplotlib", "pyyaml", "requests", "beautifulsoup4", "scipy", "gala", "dustmaps", "pyvo", "numpyro", "corner", "healpy", "h5py"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+isochrones = ["ezpadova @ git+https://github.com/mfouesneau/ezpadova@f39625883e22a619b180c73b290a46a2a137f05e"]
+# Section 6 halo tests (scripts/sims_halo_settle.py); its setup asks questions: pip install --no-build-isolation
+# --config-settings --build-option=--yes ".[agama]"
+agama = ["agama @ git+https://github.com/GalacticDynamics-Oxford/Agama@f392b9d6e59269d451b37b3ada2508a44bd3a80c"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

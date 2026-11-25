@@ -1,0 +1,18 @@
+population,component,n_cells,z_sd,z_gt3
+giants [Fe/H] < -1.5,v_t,138,1.089,0.007
+giants -1.5 < [Fe/H] < -1.1,v_t,170,0.947,0.006
+giants -1.1 < [Fe/H] < -0.8,v_t,214,1.266,0.028
+giants -0.8 < [Fe/H] < -0.5,v_t,213,2.118,0.141
+giants [Fe/H] > -0.5,v_t,160,1.816,0.106
+RR Lyrae,v_t,228,0.988,0.000
+giants [Fe/H] < -1.5,v_r,138,0.967,0.000
+giants -1.5 < [Fe/H] < -1.1,v_r,170,1.018,0.018
+giants -1.1 < [Fe/H] < -0.8,v_r,214,1.225,0.028
+giants -0.8 < [Fe/H] < -0.5,v_r,213,1.836,0.103
+giants [Fe/H] > -0.5,v_r,160,1.649,0.069
+RR Lyrae,v_r,228,1.021,0.000
+giants [Fe/H] < -1.5,v_los,138,1.150,0.014
+giants -1.5 < [Fe/H] < -1.1,v_los,170,1.025,0.000
+giants -1.1 < [Fe/H] < -0.8,v_los,214,1.108,0.014
+giants -0.8 < [Fe/H] < -0.5,v_los,213,1.820,0.070
+giants [Fe/H] > -0.5,v_los,160,1.717,0.069

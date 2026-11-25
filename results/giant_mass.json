@@ -1,0 +1,68 @@
+{
+  "fields": 10,
+  "common_area_deg2": 20.10586633460495,
+  "mass_type": "formed, Kroupa 0.08\u2013100 Msun",
+  "full_radius_deg": 12,
+  "full_mass": 2449030124.7642593,
+  "covered_mass": 2291455156.700587,
+  "below_m2": 9413625.949879851,
+  "below_m15": 52273049.527980015,
+  "direct_full_mass": 2466060410.576459,
+  "direct_below_m2": 17548000.12730366,
+  "direct_below_m15": 68154732.88113713,
+  "below_m2_p16_p84": [
+    5453677.7179033775,
+    16488323.94966878
+  ],
+  "below_m15_p16_p84": [
+    37935287.165067285,
+    73882870.71658072
+  ],
+  "full_mass_p16_p84": [
+    1491364981.2121587,
+    3404975274.1309342
+  ],
+  "common_boss_apogee_ratio": 0.9138827590217734,
+  "common_ratio_p16_p84": [
+    0.8844606193929645,
+    0.9355191014505085
+  ],
+  "conversion_alternatives": {
+    "E+": {
+      "full": 2557628827.377332,
+      "below_m2": 9524491.774878653,
+      "below_m15": 54281425.097069025
+    },
+    "E-": {
+      "full": 2346013555.082145,
+      "below_m2": 10437507.428223051,
+      "below_m15": 51687407.27826354
+    },
+    "i-": {
+      "full": 2455761057.0912886,
+      "below_m2": 9377594.199892277,
+      "below_m15": 52385723.41922288
+    },
+    "i+": {
+      "full": 2442157122.201263,
+      "below_m2": 9471575.983271053,
+      "below_m15": 52191825.909669586
+    }
+  },
+  "parent_median_ebv": {
+    "true": 0.08326596604688762,
+    "carton": 0.03791307151317597
+  },
+  "foreground": "reference mean fraction over 2-10 deg, radial profile from a uniform foreground surface density per reporting bin; amplitude 0,1,2",
+  "response": "empirical BOSS response from the stars with both spectra (scripts/boss_response.py); per-bin ratio fitted/direct applied to regions",
+  "envelope": "A/B/C age priors x measured/0/0.15/0.3 alpha x 0/1/2 foreground, plus E(V-I) +-0.025 and inclination +-7 deg for the reference; not confidence bounds",
+  "bootstrap": "500 nside16 pixel draws of the parent with selection weights and coverage recomputed, and resampled response overlap, for the full mass; 500 paired field cores for the ratio (weights fixed); conversions fixed",
+  "grid_age_max_gyr": 12.589543999567663,
+  "grid_mh_min": -2.19,
+  "input_hashes": {
+    "boss_weights.parquet": "d7cdaa4902dcc37b32f0cbc7c8c13eacbcbd1ccf5b3659ae165fba30e10f023c",
+    "apogee_weights.parquet": "1f5297aef6d49950f3926a126fe76946e90a9e320f17fef92d867483b6f109e7",
+    "boss_parent.parquet": "af0607fa5ceb8ad3a46590f3b9944d1ac79c26b2bf7ba0d14b5b9be220ae301b",
+    "apogee_parent.parquet": "5b6c0721b8d9ee547dc4acf6b4934785ad1afa02662749619d20b75416199b84"
+  }
+}

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or its data products, please cite the paper."
+title: "lmc-ancient-disc: code and data products for 'The puzzle of the ancient stellar disc of the Large Magellanic Cloud'"
+authors:
+  - family-names: Belokurov
+    given-names: Vasily
+license: MIT
+repository-code: "https://github.com/vasilybelokurov/lmc-ancient-disc"
+preferred-citation:
+  type: article
+  title: "The puzzle of the ancient stellar disc of the Large Magellanic Cloud"
+  authors:
+    - family-names: Belokurov
+      given-names: Vasily
+  journal: "Monthly Notices of the Royal Astronomical Society Letters"
+  year: 2026

@@ -1,0 +1,24 @@
+# Install the package and run the tests on a clean machine without data (tests that need data or simulations skip).
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install the package versions that made the results (requirements-lock.txt; AGAMA and ezpadova left out)
+        run: |
+          grep -vE '^(agama|ezpadova)' requirements-lock.txt > req.txt
+          pip install -r req.txt
+          pip install --no-deps -e .
+      - name: Tests
+        run: pytest -q

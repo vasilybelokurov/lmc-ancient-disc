@@ -1,0 +1,60 @@
+# Build the knowledge base (running every notebook on Zenodo bundle 1) and publish it on GitHub Pages, as the tutorials do.
+# Runs only in a public repository: GitHub Pages and Colab need one, and the private draft has no access to the bundle.
+name: knowledge base
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install the package versions that made the results, the book tools, and AGAMA (ready-made wheel of the dynamics tutorial)
+        run: |
+          grep -vE '^(agama|ezpadova)' requirements-lock.txt > req.txt
+          pip install -r req.txt "jupyter-book==1.0.4.post1" "jupytext==1.19.7" "ipykernel==7.4.0"
+          pip install --no-deps -e .
+          pip install "https://github.com/vasilybelokurov/galactic-dynamics-tutorial/releases/download/agama-wheels/agama-1.0-cp313-cp313-linux_x86_64.whl"
+      - name: Cache Zenodo bundle 1
+        uses: actions/cache@v4
+        with:
+          path: data
+          key: bundle1-${{ hashFiles('data/sources.yaml') }}
+      - name: Install Zenodo bundle 1 (every file checked against data/sources.yaml)
+        run: test -f data/giants_apogee.parquet || python scripts/fetch_release.py
+      - name: Build the knowledge base
+        run: jupyter-book build kb -W -n --keep-going
+      - name: Show the error of any notebook that failed
+        if: failure()
+        run: find kb/_build/html/reports -name '*.err.log' -exec tail -n 60 {} \;
+      - name: Check that every code cell has comments and every link of the site works
+        run: python kb/check_kb.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: kb/_build/html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

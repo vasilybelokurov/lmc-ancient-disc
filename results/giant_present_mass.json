@@ -1,0 +1,51 @@
+{
+  "total": {
+    "formed_mass": 2449030124.7642593,
+    "living_mass": 1159837128.8882735,
+    "remnant_mass": 331933287.07232326,
+    "present_mass": 1491770415.9605966,
+    "present_over_formed": 0.6091270176205744,
+    "legacy_remnant_mass_change_fraction": 0.02450035381479676
+  },
+  "below_m15": {
+    "formed_mass": 52273049.527980015,
+    "living_mass": 21230199.77769482,
+    "remnant_mass": 8997274.745759778,
+    "present_mass": 30227474.5234546,
+    "present_over_formed": 0.5782611651014323,
+    "legacy_remnant_mass_change_fraction": 0.019841817342443058
+  },
+  "below_m2": {
+    "formed_mass": 9413625.949879851,
+    "living_mass": 3774943.597561773,
+    "remnant_mass": 1649770.855624983,
+    "present_mass": 5424714.453186756,
+    "present_over_formed": 0.5762619507158124,
+    "legacy_remnant_mass_change_fraction": 0.01931585060330132
+  },
+  "total_present_model_range": [
+    1155049782.2964716,
+    1931929634.3958168
+  ],
+  "model_range_definition": "Age/alpha/foreground alternatives and the extinction/inclination conversion alternatives, not a confidence interval; fixed reference remnant prescription.",
+  "common_field_totals": {
+    "APOGEE": {
+      "formed_mass": 27552251.617174577,
+      "living_mass": 12492400.107311461,
+      "present_mass": 16506432.045799455
+    },
+    "BOSS": {
+      "formed_mass": 25179527.725165628,
+      "living_mass": 11386744.601037558,
+      "present_mass": 15066109.254246356
+    }
+  },
+  "common_field_definition": "Ten identical non-overlapping 0.8-degree field cores, 20.106 square degrees; velocity-selected, before foreground subtraction. Not full-LMC totals.",
+  "definition": "Present = living stars plus all retained remnants; returned gas excluded; no dynamical loss. Living stars separately tabulated.",
+  "remnants": "Conroy, Gunn & White 2009 section 2; alternative remnant prescription retained as sensitivity, not uncertainty interval.",
+  "input_hashes": {
+    "giant_mass.csv": "cbcae07a3460bdce64faa829163cb89b50e72c9ccb5138b3c411fc4d25537ed7",
+    "giant_mass_variants.csv": "960c7875834f7066dc607c251aae24fcb41edf108a385175bcb5b392e058d1ff",
+    "mass_conversion_factors.csv": "d9e418990113c65cdc22ee1d979b1834ed9529ee02d258095ec17da05f241335"
+  }
+}

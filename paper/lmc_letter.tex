@@ -1,0 +1,629 @@
+\documentclass[fleqn,usenatbib,letters]{mnras}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\graphicspath{{figures/}}
+
+\newcommand{\feh}{[{\rm Fe/H}]}
+\newcommand{\kms}{\,km\,s$^{-1}$}
+\newcommand{\masyr}{\,mas\,yr$^{-1}$}
+\newcommand{\Msun}{\,M$_\odot$}
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}}
+\input{tables/macros_letter}
+
+\title[The puzzle of the LMC's ancient disc]{The puzzle of the ancient stellar disc of the Large Magellanic Cloud}
+\author[V. Belokurov]{V. Belokurov$^{1}$\thanks{E-mail: vasily@ast.cam.ac.uk}\\
+$^{1}$Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK}
+\date{Draft, \today}
+\pubyear{2026}
+
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+\begin{abstract}
+We measure the rotational support of the stars of the Large Magellanic
+Cloud (LMC) as a function of metallicity, from the three-dimensional
+velocities of red giants with APOGEE and SDSS-V spectra and
+\textit{Gaia} proper motions. The LMC is a rotating disc at every
+metallicity, and its RR Lyrae are consistent with this: its giants with
+$\feh<\ltFehA$ have $v_{\rm rot}/\sigma_z\approx\ltKinRatioMP$, and even
+those with $\feh<\ltLowFeh$ have $\ltLowRatioLo<v_{\rm rot}/\sigma_z<\ltLowRatioHi$.
+The LMC had this disc when it had formed at most $\sim\ltEarlyMass$\Msun\ of stars, some
+\ltEarlyRatio\ times less than the stellar mass above which stable
+discs emerge in most simulations. None of the LMC analogues in the TNG50,
+Auriga and FIRE-2 simulations matches the rotational support of its oldest stars. In TNG50
+and Auriga these stars are born rotating but halve their rotation
+within one orbital period and lose most of it within two: torques from
+the aspherical, misaligned dark-matter halo scramble their orbits. Discs survive only once
+the halo's minor axis aligns with the disc's spin and the halo becomes
+rounder, after the LMC's oldest stars formed. In a self-interacting
+dark-matter resimulation of an LMC-mass halo, the inner halo is
+already round at $z\approx\ltSiZFirst$, which could let early discs
+survive.
+\end{abstract}
+
+\begin{keywords}
+Magellanic Clouds -- galaxies: kinematics and dynamics -- galaxies: evolution -- dark matter
+\end{keywords}
+
+\section{Introduction}
+
+The RR Lyrae of the Large Magellanic Cloud (LMC) follow the spatial
+distribution of its disc giants closely: the same extent, the same
+shape, and even the same sharp truncation on the side facing the Small
+Magellanic Cloud \citep[SMC;][fig.~1]{Grady2021}. Yet they are old and
+metal-poor \citep{Alcock1996,Olsen1998,Gratton2004,Borissova2006,Skowron2016}.
+If they belong to the disc, the LMC has had a disc since its oldest
+stars formed.
+
+That would test theories of disc emergence. In most simulations, discs
+appear only above a stellar mass of $\sim10^9$\Msun, whatever the
+epoch; below it, the stars are supported by random motions
+\citep{ElBadry2018,Clauwens2018,Dekel2020,Semenov2025a}. Two kinds of
+explanation are proposed. Either the gas cannot keep its spin, because
+mergers and changing inflows keep turning it, so that stars born at
+different times cancel each other's rotation
+\citep{McCarthy2012,Sales2012,Dekel2020,Dillamore2024,Semenov2024b,Zeng2024};
+or a disc can settle only once the galaxy has grown a hot gaseous halo
+or a centrally concentrated mass profile
+\citep{Stern2021,Hafen2022,Hopkins2023,Semenov2026}.
+Curiously, in the Marvelous Massive Dwarfs simulations, discs can
+form in dwarfs down
+to $M_\star\approx10^{7.7}$\Msun\ when gas-rich satellites on prograde
+orbits spin up the gas, and grow from the stars formed after these
+mergers \citep{Geda2026}.
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{paper_letter_signal.png}
+\caption{The LMC's stellar tracers, the mass they formed and their
+  rotation. (a) The tracers on the sky about the fitted centre: pixels
+  with BOSS (grey) and APOGEE (slate) giants, giants with
+  $\feh<\ltFehA$ (dark blue dots), RR Lyrae density (orange contours);
+  dashed circles: \ltProfIn$^\circ$ and \ltProfOut$^\circ$ from the
+  fitted centre; dotted: the line of nodes. (b) Stellar mass formed
+  against \feh: cumulative (left axis; filled circle: the total;
+  triangles and squares: published formed and present masses) and
+  fraction per dex (right axis; circles: corrected, open squares:
+  observed giants); shading: the five metallicity bins. (c) Median
+  $v_t$, $v_r$ (all populations) and $v_{\rm los}$ (giants) against
+  position angle \ltProfIn--\ltProfOut$^\circ$ from the fitted centre;
+  colours as the shading in (b), RR Lyrae orange; black: the reference
+  disc ($v_t$ solid, $v_r$ dotted, $v_{\rm los}$ dashed). Every
+  population shows the velocity pattern of a rotating disc.
+}
+\label{fig:data}
+\end{figure*}
+
+Kinematic studies of galaxies at high redshift are at present limited
+to their gas.
+Ionised and cold gas give different rotational support
+\citep{Simons2016,Rizzo2020,Girard2021,deGraaff2024,Rizzo2024,Rowland2024,Kohandel2024,Danhaive2025},
+and a rotating gas disc need not leave a coherently rotating stellar
+disc: stars form with less rotational support than their gas, and if
+the gas disc changes its orientation, stars born at different times do
+not share one rotation \citep{ElBadry2018,Zeng2024,Kohandel2025}.
+Archaeological studies of nearby galaxies measure the stars
+themselves. The Milky Way spun up its disc between $\feh\approx-1.3$
+and $-0.9$, after forming $\sim5\times10^8$\Msun\ of stars
+\citep[][see also \citealt{Conroy2022,Xiang2022,Rix2022}]{Belokurov2022,Belokurov2023,Kurbatov2024},
+but most dwarf galaxies with
+$10^{3.5}<M_\star<10^{8}$\Msun\ are supported by dispersion today, in isolation
+as well as near massive hosts \citep{Wheeler2017}, and even dwarfs in voids
+with $M_\star=10^7$--$10^9$\Msun\ have a ratio of rotation to
+dispersion $v/\sigma\lesssim2$ \citep{delosReyes2023}, although such
+measurements, dominated by old stars and by spatially binned spectra,
+may underestimate $v/\sigma$ \citep{Ruan2026}.
+
+The LMC lies between the dispersion-supported dwarf spheroidals and the
+Milky Way. It is massive enough for its oldest stars to be studied in
+large numbers, and its record is cleaner than the Milky Way's, whose
+early disc stars were thrown onto halo-like orbits by its last significant
+merger \citep{Bonaca2017,DiMatteo2019,Gallart2019,Belokurov2020}: dwarf galaxies form almost all their
+stars in situ \citep[][but see \citealt{Mucciarelli2021}]{Fitts2018}.
+
+Earlier work suggests that the LMC's old populations belong to its
+disc. Its old clusters form a flattened, rotating system with no
+kinematic halo \citep{Freeman1983,Schommer1992}, carbon stars trace a
+thick rotating disc \citep{vanderMarel2002}, the surface brightness and
+main-sequence star counts stay exponential to large radii
+\citep{Gallart2004,Saha2010}, and the most metal-poor red giants lie in
+a thicker disc rather than a hot halo \citep{Carrera2011}. Halo
+candidates exist too. The density of the RR Lyrae admits a halo
+\citep{Kinman1991}, and RR Lyrae in the inner LMC have a high
+line-of-sight velocity dispersion \citep{Minniti2003,Pejcha2009}; an
+extended, lumpy envelope surrounds the LMC
+\citep{Majewski2009,Belokurov2016,Belokurov2017,Navarrete2019}, but it
+holds only $\sim$0.4 per cent of its stellar mass \citep{Nidever2019}
+and may be its outer disc, disturbed by the SMC and the Milky Way
+\citep{Mackey2016,Mackey2018,Cullinane2022a,Cullinane2022b,Navarrete2023}.
+
+However, RR Lyrae are not the best tracers for the question: for most
+of them only proper motions are available, which do not measure the
+vertical velocity dispersion. We therefore use red giants with spectra
+from APOGEE \citep{Majewski2017,Abdurrouf2022} and SDSS-V
+\citep{Kollmeier2026,Nidever2026} and proper motions from
+\textit{Gaia} DR3 \citep{GaiaCollaboration2023} to measure all three
+components of their velocities, and the rotational support of the
+LMC's stars as a function of metallicity, and hence of the stellar
+mass the LMC had formed when they were born. The RR Lyrae serve as a
+check, and we compare the result with LMC analogues in the TNG50,
+Auriga and FIRE-2 simulations \citep{Pillepich2019,Grand2024,Wetzel2023}.
+
+\section{Rotational support across metallicity}\label{sec:rotation}
+
+We use the red giants of two surveys, APOGEE DR17
+\citep{Majewski2017,Abdurrouf2022} and SDSS-V DR20 BOSS
+\citep{Kollmeier2026,Sizemore2024,Nidever2026}, with \textit{Gaia} DR3
+proper motions \citep{GaiaCollaboration2023} and line-of-sight
+velocities, $v_{\rm los}$, and, as a check, the fundamental-mode (RRab)
+RR Lyrae of OGLE-IV and \textit{Gaia} DR3
+\citep{Udalski2015,Soszynski2016,Soszynski2019,Clementini2023}, with
+proper motions only. The giants are split
+into five \feh\ bins ($<\ltFehA$, $\ltFehA$ to $\ltFehB$, $\ltFehB$ to
+$\ltFehC$, $\ltFehC$ to $\ltFehD$, $>\ltFehD$), and all stars are kept
+at $\ltRingIn^\circ<\rho<\ltRingOut^\circ$, where $\rho$ is the angular
+distance from the centre of \citet{vanderMarel2014}; velocities and
+maps are measured about the centre fitted by our disc model (the
+fitted centre), \ltCentreOffset$^\circ$ east of it.
+
+Fig.~\ref{fig:data}(a) shows the sky coverage of each tracer. APOGEE (\ltNApogee\ giants) observed separate fields, BOSS
+(\ltNBoss) fills most of the disc, and the RR Lyrae cover it almost
+without interruption. Fig.~\ref{fig:data}(b) is the stellar mass formed
+per \feh, from the counts of giants corrected for selection, coverage,
+the Milky Way foreground, the scatter of BOSS \feh, and the number of
+giants per unit formed mass (PARSEC isochrones,
+\citealt{Bressan2012,Marigo2017}; Kroupa IMF, \citealt{Kroupa2001};
+ages from the age--metallicity relation of \citealt{Povick2024}). For
+each metallicity we thus know how much stellar mass the LMC had formed
+before stars of that metallicity were born, and, through the
+age--metallicity relation, roughly when.
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{paper_sims_kinematics_fraction.png}
+\caption{The rotational support of the LMC's stars against that of
+  simulated analogues observed and fitted in the same way, at
+  $R=\ltRSig$\,kpc: (a) $v_{\rm rot}$, (b) $\sigma_z$, (c)
+  $v_{\rm rot}/\sigma_z$, against the cumulative fraction of the formed
+  mass below each metallicity bin; top axis: the bin edges in LMC
+  \feh. Black bands: the LMC giants (16th--84th percentiles; above
+  $\feh=\ltApoFeh$ extended to APOGEE alone, hence the widening). Blue:
+  \ltNTng\ TNG50 analogues (median, thick; 68 and 95 per cent ranges,
+  thin and dashed); orange: \ltNAu\ Auriga, green: \ltNFire\ FIRE-2
+  analogues. Numbers in (c): per cent of TNG50 analogues reaching the
+  LMC band. Diamonds: the RR Lyrae, with $\sigma_R$ in (b) and (c).
+  Almost no analogue is as rotation-supported as the LMC at
+  $\feh<\ltFehB$; only TNG50 matches its metal-rich stars.
+}
+\label{fig:sims_kin}
+\end{figure*}
+
+Fig.~\ref{fig:data}(c) shows the internal velocities, with only the
+LMC's bulk motion removed: from each star's proper motion and
+$v_{\rm los}$ we subtract those that the LMC's centre-of-mass motion
+would give at its position, in the frame of a joint fit of all
+metallicity bins with the disc model below. The proper motions, converted to velocities
+at each star's distance in the fitted disc plane, are split into
+components along ($v_r$) and perpendicular to ($v_t$, negative
+clockwise on the sky) the direction away from the fitted centre. In
+every metallicity bin of the giants $v_{\rm los}$ makes one wave per
+turn in position angle, and in every bin and for the RR Lyrae $v_t$
+and $v_r$ each make two, as in a reference disc (the model of the
+$\feh<\ltFehA$ giants put through the same steps): the LMC's stars
+rotate coherently at every metallicity.
+
+To measure rotation and dispersion, we fit each metallicity bin of the
+giants and the RR Lyrae on its own with a thin, inclined
+disc at \ltDist\,kpc, as in the thin-disc models of
+\citet{vanderMarel2002} and \citet{Vasiliev2018}, but fitted star by
+star and with the perspective of each star's line of sight treated
+exactly rather than to first order \citep[cf.][]{Vasiliev2020}.
+In cylindrical coordinates $(R,\phi,z)$ in the disc frame, $z$ along
+its spin, the mean velocity is the systemic motion plus a rotation curve
+$v_{\rm rot}(R)$, rising as $\tanh$ and then linearly, and bisymmetric
+in-plane streaming; about it the velocities follow a Gaussian
+ellipsoid aligned with the disc, with dispersions $\sigma_R$,
+$\sigma_\phi$ and $\sigma_z$, convolved with each star's errors, plus
+an outlier component. The line-of-sight velocities mostly measure
+$\sigma_z$ and the proper motions the in-plane dispersions
+\citep{Vasiliev2018}, so the RR
+Lyrae give $\sigma_R$ but not $\sigma_z$. We quote values at
+$R=\ltRSig$\,kpc, the middle of the fitted radii; the RR Lyrae are
+fitted at $\ltRrlFitIn^\circ<\rho<\ltRingOut^\circ$, beyond the crowded
+inner disc. The posteriors, the sampler and the tests on mock data are in the
+online material.
+
+Fig.~\ref{fig:sims_kin} gives the main result of this Letter: the
+rotational support of the LMC's stars against metallicity, compared
+with that of simulated analogues introduced below. At every
+metallicity the LMC's giants rotate fast and are kinematically cool.
+From the most metal-poor bin to the most metal-rich, $v_{\rm rot}$
+rises only from \ltKinVrotMP\ to \ltKinVrotMR\kms, while $\sigma_z$
+falls from \ltKinSigMP\ to \ltKinSigMR\kms, so $v_{\rm rot}/\sigma_z$
+grows from \ltKinRatioMP\ to \ltKinRatioMR. The last value is a lower
+limit, because the less precise BOSS metallicities
+scatter hotter, more metal-poor stars into the most metal-rich bin; APOGEE alone
+gives \ltKinRatioMRApo. Even the giants
+with $\feh<\ltFehA$ (median $\ltMPFehMed$, \ltMPPctLow\ per cent below
+$\ltMPFehLow$), which formed with the first \ltFirstFrac\ per cent of
+the LMC's stellar mass, are supported by rotation. Within this bin, the
+\ltLowN\ giants with $\feh<\ltLowFeh$, which formed while the LMC had
+built $\sim\ltLowMass$\Msun\ of stars, still have
+$v_{\rm rot}/\sigma_z\approx\ltLowRatioLo$--\ltLowRatioHi. BOSS errors
+scatter stars from $\feh\approx\ltLowInterLo$ to $\ltLowInterHi$ into this group
+(\ltLowPurity\ per cent of those also observed by APOGEE lie below
+$\ltLowFeh$), but in mock samples a non-rotating metal-poor population
+falls below the measured value unless it makes up less than
+\ltLowPurityMin\ per cent of the group (online material). The RR Lyrae give a consistent
+$v_{\rm rot}/\sigma_R=\ltKinRrlRatioR$, against \ltKinRatioRMP\ for the
+most metal-poor giants. The modelling also measures the size of each
+population: between \ltHFitLo\ and \ltHFitHi\,kpc the selection-weighted
+surface density of the giants falls exponentially, with a scale length
+that grows from \ltHMR\,kpc for $\feh>\ltFehD$ to \ltHMP\,kpc for
+$\feh<\ltFehA$ (\ltHRrl\,kpc for the RR Lyrae; half-mass radii of
+\ltReMR, \ltReMP\ and \ltReRrl\,kpc if the exponential continued inside
+\ltHFitLo\,kpc, where the bar dominates). These are present-day sizes:
+heating and radial migration since the stars formed may have made the
+old disc larger than it was at birth.
+
+What matters for disc formation is the mass the LMC had when these
+stars were born. Below $\feh=\ltFehA$ the LMC formed
+$\ltEarlyMass$\Msun\ of stars (16th--84th percentiles
+\ltEarlyMassLo--$\ltEarlyMassHi\times10^{\ltEarlyExp}$\Msun;
+Fig.~\ref{fig:data}b), an upper limit on its stellar mass when its most
+metal-poor giants formed: about \ltEarlyRatio\ times less than the
+$2\times10^9$\Msun\ at which a simulated Milky Way progenitor forms its
+disc, even with a resolved cold ISM \citep{Semenov2025a}, and
+\ltEarlyRatioMW\ times less than the Milky Way had formed when it spun
+up its disc \citep{Belokurov2023,Kurbatov2024}. The LMC built a lasting
+stellar disc at a mass where most simulated galaxies are supported by
+random motions \citep{ElBadry2018,Dekel2020}; in the Marvelous Massive
+Dwarfs, discs form at lower masses, but from the stars born after the
+merger that sets them up \citep{Geda2026}.
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{paper_sims_birth.png}
+\caption{The rotational support of the stars of simulated LMC analogues
+  at birth (blue, dashed) and today (red, solid), against age, in
+  cohorts of \ltCohort\,Gyr: (a) $v_\phi$, (b) $\sigma_z$, (c)
+  $v_\phi/\sigma_z$. TNG50: median and 16th--84th percentiles over
+  \ltNTngBirth\ analogues; Auriga: one thin line per galaxy. Squares:
+  the LMC bins at their mean ages (bars: 16th--84th percentiles). The
+  simulated values are intrinsic, at
+  $\ltRMinBirth<R<\ltRBirth$\,kpc at birth and within \ltRToday\,kpc
+  today; the LMC's are measured at $R=\ltRSig$\,kpc. The simulated
+  stars are born with as much rotational support as the LMC's old stars
+  have today, and the oldest of them have lost most of it since.
+}
+\label{fig:sims_birth}
+\end{figure*}
+
+We compare the LMC with all \ltNTng\ central galaxies of the TNG50
+volume \citep{Nelson2019TNG50,Pillepich2019,Nelson2019release} with
+stellar masses of $\ltMstarLo$--$\ltMstarHi\times10^9$\Msun\ and total
+masses of $\ltMtotLo$--$\ltMtotHi$\Msun, and with the zoom-in
+simulations Auriga \citep[\ltNAu\ dwarfs;][]{Grand2024} and FIRE-2
+\citep[\ltNFire\ galaxies;][]{Wetzel2023}, whose mass resolution is
+about ten times finer. TNG50 and Auriga treat star-forming gas as a pressurised
+multiphase medium \citep{Springel2003}; FIRE-2 resolves its cold phase
+and forms stars in bursts at these masses. Each analogue is observed with the LMC's samples and errors
+and fitted with the same model, and its metallicities are matched to
+the LMC's by rank in formed mass (details in the online material).
+
+None of the suites reproduces the LMC's early disc, and only TNG50
+reproduces its later one. In the three most metal-rich bins,
+\ltTngPctC, \ltTngPctD\ and \ltTngPctE\ per cent of the TNG50 analogues
+reach the LMC's $v_{\rm rot}/\sigma_z$. The Auriga and FIRE-2 analogues
+fall short at every metallicity: even for their most metal-rich stars
+the highest $v_{\rm rot}/\sigma_z$ is \ltAuRatioMRMax\ and
+\ltFireRatioMRMax, against the LMC's \ltKinRatioMR--\ltKinRatioMRApo,
+although these suites contain only \ltNAu\ and \ltNFire\ galaxies. In the most metal-poor bin no
+TNG50 analogue reaches the LMC either: the median analogue has
+$v_{\rm rot}/\sigma_z=\ltTngRatioMP$ and the highest \ltTngRatioMPMax,
+against the LMC's \ltKinRatioMP; the only analogue as
+cold as the LMC barely rotates ($v_{\rm rot}=\ltTngColdVrot$\kms).
+
+\section{The absence of early stellar discs in simulated LMC analogues}\label{sec:sims}
+
+On a closer look, at birth the stars of the simulated analogues are
+supported by rotation; however, they lose this support quickly. TNG50 and Auriga
+record the position and velocity of every star particle at birth, so
+the analogues' stars can be measured when they formed and today. We
+measure the early discs at $\ltRMinBirth<R<\ltRBirth$\,kpc in their
+progenitors, where TNG50 resolves them (at 3--5\,kpc it has
+\ltRadPartRatio\ times as many particles) and where most old stars seen
+today at the LMC's radius formed (only \ltRadBornOuter\ per cent of
+them were born at 3--5\,kpc); the LMC is only a
+reference in
+Figs~\ref{fig:sims_birth} and~\ref{fig:scramble}, whereas
+Fig.~\ref{fig:sims_kin} compares at the same radius.
+
+Fig.~\ref{fig:sims_birth} compares the rotational support of the stars
+of the simulated analogues at birth and at $z=0$: the mass-weighted
+mean azimuthal velocity $v_\phi$ and vertical dispersion $\sigma_z$ of
+each cohort, at birth relative to its progenitor and about its own
+spin, today in the disc frame. The LMC bins are placed at the ages that
+the age--metallicity relation of \citet{Povick2024} gives them. At
+birth even the oldest simulated stars rotate: the cohorts
+\ltOldAgeLo--\ltOldAgeHi\,Gyr old formed with
+$v_\phi/\sigma_z=\ltTngRbMed$ in TNG50 and \ltAuRbMed\ in Auriga, as
+high as the LMC's \ltKinRatioMP\ and \ltKinRatioB\ today. The same
+stars today have $v_\phi/\sigma_z=\ltTngRtMed$ in TNG50 and
+\ltAuRtMed\ in Auriga: their rotation has fallen from \ltTngVbMed\ to
+\ltTngVtMed\kms\ and their $\sigma_z$ has risen from \ltTngSbMed\ to
+\ltTngStMed\kms.
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{paper_letter_scramble.png}
+\caption{How the early TNG50 cohorts lose their rotation, and why. (a)
+  $v_\phi/\sigma_z$ about each cohort's spin at birth against time
+  since birth (inner labels: orbital periods at \ltROrb\,kpc) for the
+  real stars (black) and for test particles in the progenitor's gravity
+  frozen at birth (orange), with only the dark matter aspherical (red)
+  and made axisymmetric about the cohort's spin (purple); blue band:
+  the star-forming gas; dotted: the LMC's $\feh<\ltFehA$ giants (at
+  $R=\ltRSig$\,kpc, for reference). (b) $v_\phi/\sigma_z$ after
+  \ltTAfterA--\ltTAfterB\,Gyr against the dark-matter quadrupole
+  $\epsilon_2$ at birth; dashed: at birth. (c) Misalignment $\psi$ of the
+  halo's minor axis with the disc spin (red, left), and $\epsilon_2$
+  (black) with its in-plane part (blue dashed; right), against lookback
+  time. The rotation is halved within one orbital period, and mostly
+  lost within two, because the halo is aspherical and misaligned with
+  the disc; it settles only after the LMC's oldest stars formed.
+}
+\label{fig:scramble}
+\end{figure*}
+
+To find how fast the rotation is lost and why, we follow TNG50
+progenitors back in time (Fig.~\ref{fig:scramble}): \ltNCohorts\ cohorts born
+at $z=\ltZSnapA$--\ltZSnapB\ in \ltNCohortGal\ of \ltNFull\ progenitors
+with outputs at every snapshot, and the dark matter of a larger sample
+of \ltNSample\ that includes them. Here a cohort is the stars formed in the
+\ltWindow\,Myr before an output (its birth snapshot), followed for
+\ltDtMax\,Gyr; its $v_\phi/\sigma_z$ is measured about its spin at
+birth. The same stars are also moved as test particles through their
+progenitor's gravity \citep[computed with AGAMA;][]{Vasiliev2019}:
+frozen at birth, with only the dark matter aspherical, and made
+axisymmetric about the cohort's spin.
+
+Within \ltScrTSecond\,Gyr, less than one orbital period
+($T_{\rm orb}=\ltTOrb$\,Gyr at \ltROrb\,kpc), the $v_\phi/\sigma_z$ of
+the early cohorts falls from \ltScrStart\ to \ltScrSecond, and after
+\ltScrTEnd\,Gyr it is \ltScrEnd, while the star-forming gas keeps
+$v_\phi/\sigma_z\approx\ltGasRatio$ about its own, possibly changing,
+spin. Test particles lose their rotation as fast in the gravity frozen
+at birth (\ltFrozenEnd\ at the end) and when only the dark matter is
+aspherical (\ltDmEnd), but keep it when the gravity is axisymmetric
+about their spin (\ltAxiEnd). The rotation is therefore destroyed by the
+shape of the halo in which the stars are born, without later mergers,
+and by the part of its asphericity that is not axisymmetric about the
+disc's spin.
+
+Fig.~\ref{fig:scramble}(b) relates the loss to this part of the halo
+at birth. We measure it with $\epsilon_2$, the amplitude of the
+quadrupole of the dark-matter potential at $r=\ltSetRZero$\,kpc that is
+not axisymmetric about the disc's spin, relative to the monopole: it
+grows with a tilt of the halo relative to the disc and with its
+elongation in the disc plane, but not with a flattening along the
+spin (definition in the online material). The rotation that survives
+falls steadily with $\epsilon_2$ (Spearman rank correlation
+\ltEpsSpearman\ over \ltNCohortsB\ cohorts): cohorts born at
+$\epsilon_2\approx\ltEpsLow$ keep $v_\phi/\sigma_z\approx\ltVsEpsLow$,
+close to their value at birth, while those born at
+$\epsilon_2\approx\ltEpsHigh$ end with \ltVsEpsHigh. An early disc
+survives only in a halo nearly axisymmetric about its spin.
+
+Fig.~\ref{fig:scramble}(c) shows how the halo changes. At a lookback
+time of \ltLbEarly\,Gyr its minor axis is misaligned with the disc
+spin by $\psi\approx\ltPsiEarly^\circ$ and $\epsilon_2\approx\ltEpsEarly$,
+the value at which cohorts lose all their rotation. On a timescale of \ltSettleLo--\ltSettleHi\,Gyr the halo
+settles: its minor axis turns towards the disc's spin, its elongation
+in the disc plane shrinks, and it becomes somewhat rounder (the
+minor-to-major axis ratio of the dark matter within \ltSetRIn\,kpc
+grows from $c/a=\ltCaEarly$ to \ltCaLate). By \ltLbLate\,Gyr ago
+$\psi\approx\ltPsiLate^\circ$ and $\epsilon_2\approx\ltEpsLate$, close to
+where cohorts keep their rotation: the halo becomes quiet only after
+the LMC's oldest stars formed, \ltOldAgeLo--\ltOldAgeHi\,Gyr ago.
+
+In Auriga the experiment of
+Fig.~\ref{fig:scramble}(a), run on the early cohorts with the gravity
+frozen at birth, gives the same result (online material). In FIRE-2
+the oldest stars also lose their rotation quickly,
+but they are born with less of it, $v_\phi/\sigma_z=\ltFireRbMed$ for the
+cohorts \ltOldAgeLo--\ltOldAgeHi\,Gyr old, as in the FIREbox volume,
+where dwarfs below $M_\star\approx10^9$\Msun\ form stars from gas too
+turbulent to settle into a disc \citep{Benavides2025}. We have not
+tested what scrambles the orbits in FIRE-2.
+
+\section{Discussion and conclusions}\label{sec:discussion}
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{paper_sims_sidm.png}
+\caption{The centre of an LMC-mass halo in cold (CDM) and
+  self-interacting (SIDM) dark matter (SIDM Concerto Halo104, dark
+  matter only). (a) Quadrupole at \ltREps\,kpc against redshift: CDM
+  (black) and SIDM (red), the full quadrupole including its
+  axisymmetric part ($\epsilon_{2,\rm all}$, filled) and the part not
+  axisymmetric about the halo's minor axis ($\epsilon_2$, open); grey: TNG50. (b) Minor-to-major axis ratio
+  $c/a$ and (c) $\epsilon_{2,\rm all}$ against radius, light to dark
+  from $z=\ltSiZFirst$ to 0. With self-interactions the centre of the
+  halo is round already at $z\approx\ltSiZFirst$; in CDM it stays
+  flattened and aspherical.
+}
+\label{fig:sidm}
+\end{figure*}
+
+\subsection{Halo roundness in SIDM and CDM}\label{sec:sidm}
+
+Collisions between dark-matter particles could make the centre of the
+halo rounder, because scattering exchanges
+energy and angular momentum and isotropises the orbits in the dense
+inner halo \citep{Peter2013,Vargya2022}. Fig.~\ref{fig:sidm} tests this
+with the CDM and self-interacting dark matter (SIDM) runs of the
+LMC-mass halo Halo104 of SIDM Concerto \citep{Nadler2025}, from the
+same initial conditions, with dark matter only and a velocity-dependent
+cross-section per unit mass of normalisation
+$\sigma_0/m=\ltSigmaZero$\,cm$^2$\,g$^{-1}$ that falls as $v^{-4}$
+above $w=\ltWSidm$\kms.
+
+In CDM the non-axisymmetric part of the quadrupole at \ltREps\,kpc
+about the halo's minor axis is $\epsilon_2\approx\ltSiCdmNaLo$--\ltSiCdmNaHi\
+at all redshifts, similar to the TNG50 progenitors. In SIDM the full
+quadrupole, including its axisymmetric part, is already small at
+$z=\ltSiZFirst$, $\epsilon_{2,\rm all}\approx\ltSiEpsFirst$, and falls to
+$\approx\ltSiEpsLate$ by $z=1.5$, about \ltSiRatioLate\ times below CDM.
+As the full quadrupole is the same about any axis and bounds its
+non-axisymmetric part about every axis, a disc of any orientation in
+the SIDM halo would feel $\epsilon_2\lesssim\ltSiEpsFirst$ at
+$z=\ltSiZFirst$, at or below the value at which the TNG50 cohorts keep
+their rotation. The SIDM halo is nearly round within $\sim10$\,kpc
+($c/a\approx\ltSiCaSidmMed$ at \ltREps\,kpc, against
+\ltSiCaCdmLo--\ltSiCaCdmHi\ in CDM), where the early disc's stars
+orbit.
+
+The cross-section falls with collision speed, to
+$\approx0.03$\,cm$^2$\,g$^{-1}$ at the $\sim1000$\kms\ speeds in galaxy
+clusters, below the upper limits that clusters set, so the model is not
+excluded by them (\citealt{Nadler2025} and references therein).
+A baryonic disc flattens an SIDM halo along the disc and aligns it
+with the disc more closely than a CDM halo \citep{Sameie2018}; this keeps
+the halo axisymmetric about the disc's spin, the condition under which
+the disc survives (Fig.~\ref{fig:scramble}b). Milky Way-mass SIDM haloes
+with baryons are no rounder than CDM ones \citep{Vargya2022}, but their
+alignment with the disc was not measured. Whether SIDM preserves an early LMC disc
+remains to be tested with hydrodynamical SIDM simulations.
+
+\subsection{Conclusions}\label{sec:conclusions}
+
+\begin{enumerate}
+\item The LMC's oldest stars are in a rotating disc: even its giants
+  with $\feh<\ltFehA$ have $v_{\rm rot}/\sigma_z\approx\ltKinRatioMP$,
+  and the rotational support grows with metallicity, to
+  $\gtrsim\ltKinRatioMR$. The RR Lyrae are consistent with this.
+  The disc reaches back to the LMC's first $\sim\ltLowMass$\Msun\ of
+  stars: its giants with $\feh<\ltLowFeh$ have
+  $v_{\rm rot}/\sigma_z\approx\ltLowRatioLo$--\ltLowRatioHi. Measurement
+  errors mix more metal-rich stars into this group, but their rotation
+  alone could explain the measured value only if they made up more than
+  \ltLowInterMax\ per cent of it.
+\item The LMC had this disc when it had formed at most
+  $\ltEarlyMass$\Msun\ of stars, about \ltEarlyRatio\ times less than
+  the mass at which simulated Milky Way progenitors form their discs:
+  low-mass galaxies can build lasting stellar discs far below the
+  threshold seen in most simulations.
+\item None of the \ltNTng\ TNG50, \ltNAu\ Auriga and \ltNFire\ FIRE-2
+  LMC analogues, observed with the LMC's samples and errors, matches
+  the rotational support of its most metal-poor stars; only TNG50
+  reproduces its metal-rich disc.
+\item In TNG50 and Auriga the oldest stars are born in rotating discs
+  but halve their rotation within one orbital period and lose most of
+  it within two, scrambled by the aspherical, misaligned centre of the
+  dark-matter halo, which settles only after the LMC's oldest stars
+  formed. In FIRE-2 they are born with less rotation.
+\item In an SIDM resimulation of an LMC-mass halo, the inner halo is
+  nearly round already at $z\approx\ltSiZFirst$. Self-interactions are
+  one way in which early discs could survive, but the cross-section is
+  large and the run has no baryons; changes to star formation and
+  feedback may offer others.
+\end{enumerate}
+
+4MOST \citep{Cioni2019} will extend the measurement to the LMC's most
+metal-poor stars. Line-of-sight velocities of red giants in other
+nearby galaxies already show both outcomes: in M33, as in the LMC,
+most old giants corotate with the disc
+\citep{Gilbert2022,Cullinane2023}, whereas in NGC~6822 and WLM the
+metal-poor giants are hotter than the younger ones
+\citep{Leaman2009,Swan2016}. Larger samples with ages will show where
+the earliest stellar discs survived.
+
+\section*{Acknowledgements}
+We thank Vincenzo Ripepi and Marcella Marconi for the discussion of
+RR Lyrae, at the Rubin LSST-Europe-8 conference in Budapest in 2026,
+that started this work. We thank Ethan Nadler and Demao Kong for sharing the LMC-mass SIDM
+Concerto simulation. We thank Andrey Kravtsov for useful comments that
+helped to improve the manuscript. The analysis code and parts of the text were prepared
+with the help of AI tools (Claude, Anthropic; and, at some stages, Codex,
+OpenAI); the author checked all results and takes full responsibility for the
+content.
+
+This work has made use of data from the European Space Agency (ESA) mission
+{\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia}
+Data Processing and Analysis Consortium (DPAC,
+\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAC
+has been provided by national institutions, in particular the institutions
+participating in the {\it Gaia} Multilateral Agreement.
+
+Funding for the Sloan Digital Sky Survey IV has been provided by the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of Science, and the Participating Institutions. SDSS-IV acknowledges support and resources from the Center for High Performance Computing at the University of Utah. The SDSS website is \href{https://www.sdss4.org}{www.sdss4.org}. SDSS-IV is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institution for Science, Carnegie Mellon University, Center for Astrophysics $|$ Harvard \& Smithsonian, the Chilean Participation Group, the French Participation Group, Instituto de Astrof\'isica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe (IPMU) / University of Tokyo, the Korean Participation Group, Lawrence Berkeley National Laboratory, Leibniz Institut f\"ur Astrophysik Potsdam (AIP), Max-Planck-Institut f\"ur Astronomie (MPIA Heidelberg), Max-Planck-Institut f\"ur Astrophysik (MPA Garching), Max-Planck-Institut f\"ur Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observat\'ario Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Aut\'onoma de M\'exico, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University. APOGEE DR17 \citep{Abdurrouf2022} is part of SDSS-IV \citep{Blanton2017,Majewski2017,Wilson2019}.
+
+Funding for the Sloan Digital Sky Survey V has been provided by the Alfred P. Sloan Foundation, the Heising-Simons Foundation, the National Science Foundation, and the Participating Institutions. SDSS acknowledges support and resources from the Center for High-Performance Computing at the University of Utah. SDSS telescopes are located at Apache Point Observatory, funded by the Astrophysical Research Consortium and operated by New Mexico State University, and at Las Campanas Observatory, operated by the Carnegie Institution for Science. The SDSS web site is \href{https://www.sdss.org}{www.sdss.org}. SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration, including the Carnegie Institution for Science, Chilean National Time Allocation Committee (CNTAC) ratified researchers, Caltech, the Gotham Participation Group, Harvard University, Heidelberg University, The Flatiron Institute, The Johns Hopkins University, L'Ecole polytechnique f\'{e}d\'{e}rale de Lausanne (EPFL), Leibniz-Institut f\"{u}r Astrophysik Potsdam (AIP), Max-Planck-Institut f\"{u}r Astronomie (MPIA Heidelberg), Max-Planck-Institut f\"{u}r Extraterrestrische Physik (MPE), Nanjing University, National Astronomical Observatories of China (NAOC), New Mexico State University, The Ohio State University, Pennsylvania State University, Smithsonian Astrophysical Observatory, Space Telescope Science Institute (STScI), the Stellar Astrophysics Participation Group, Universidad Nacional Aut\'{o}noma de M\'{e}xico, University of Arizona, University of Colorado Boulder, University of Illinois at Urbana-Champaign, University of Toronto, University of Utah, University of Virginia, Yale University, and Yunnan University. The BOSS spectra were taken with the 2.5-m Sloan \citep{Gunn2006} and du Pont \citep{Bowen1973} telescopes \citep{Smee2013}.
+
+This publication makes use of data products from the Two Micron All Sky Survey,
+which is a joint project of the University of Massachusetts and the Infrared
+Processing and Analysis Center/California Institute of Technology, funded by the
+National Aeronautics and Space Administration and the National Science
+Foundation.
+
+The IllustrisTNG simulations were undertaken with compute time awarded by the
+Gauss Centre for Supercomputing (GCS) under GCS Large-Scale Projects GCS-ILLU and
+GCS-DWAR on the GCS share of the supercomputer Hazel Hen at the High Performance
+Computing Center Stuttgart (HLRS), as well as on the machines of the Max Planck
+Computing and Data Facility (MPCDF) in Garching, Germany. We have used
+simulations from the Auriga Project \citep{Grand2017} public data release
+\citep{Grand2024} available at \url{https://wwwmpa.mpa-garching.mpg.de/auriga/data.html}.
+We use the publicly-available FIRE-2 cosmological zoom-in simulations
+\citep{Wetzel2023,Wetzel2025}, from the Feedback In Realistic Environments (FIRE)
+project, generated using the Gizmo code \citep{Hopkins2015} and the FIRE-2
+physics model \citep{Hopkins2018}; the runs m11d, m11e and m11h were introduced
+by \citet{ElBadry2018}.
+
+This paper made use of the Whole Sky Database (wsdb) created and maintained by
+Sergey Koposov at the Institute of Astronomy, Cambridge with financial support
+from the Science \& Technology Facilities Council (STFC) and the European
+Research Council (ERC). This publication made use of the Q3C software
+\citep{Koposov2006}. This research has made use of the VizieR catalogue access
+tool, CDS, Strasbourg, France (DOI: 10.26093/cds/vizier); the original
+description of the VizieR service was published in \citet{Ochsenbein2000}. This
+research has made use of the SIMBAD database, operated at CDS, Strasbourg,
+France \citep{Wenger2000}.
+
+This work made use of Astropy (\url{https://www.astropy.org}), a
+community-developed core Python package and an ecosystem of tools and resources
+for astronomy \citep{Astropy2013,Astropy2018,Astropy2022}. Some of the results in
+this paper have been derived using the healpy and HEALPix package
+\citep{Zonca2019,Gorski2005}. We also used NumPy \citep{Harris2020}, SciPy
+\citep{Virtanen2020}, Matplotlib \citep{Hunter2007}, pandas \citep{McKinney2010},
+astroquery \citep{Ginsburg2019}, JAX \citep{Bradbury2018}, NumPyro
+\citep{Bingham2018,Phan2019}, corner \citep{ForemanMackey2016}, gala
+\citep{PriceWhelan2017}, dustmaps \citep{Green2018}, AGAMA \citep{Vasiliev2019},
+h5py (\url{https://www.h5py.org}), PyArrow (\url{https://arrow.apache.org}), PyVO
+(\url{https://pyvo.readthedocs.io}) and ezpadova
+(\url{https://github.com/mfouesneau/ezpadova}).
+
+\section*{Data availability}
+All observational data used in this Letter are public. {\it Gaia} DR3 is
+available from the {\it Gaia} archive (\url{https://gea.esac.esa.int/archive/}),
+APOGEE DR17 and the SDSS-V DR20 BOSS spectra from the SDSS
+(\url{https://www.sdss.org}), and the OGLE-IV RR Lyrae catalogues from the OGLE
+archive (\url{https://ogle.astrouw.edu.pl}). The TNG50, Auriga and FIRE-2
+simulations are public \citep{Nelson2019release,Grand2024,Wetzel2023}. The
+$z=0$ snapshot of SIDM Concerto Halo104 is public \citep{Nadler2025}; its
+snapshots at $z>0$ were provided by E.~Nadler and are available from the
+Concerto authors on request. The derived catalogues (the cross-matched giant
+and RR Lyrae samples with their selection weights) and the posterior samples of
+the kinematic fits are at \url{https://doi.org/10.5281/zenodo.24447285}. The code that
+makes every figure, table and number of this Letter is at
+\url{https://github.com/vasilybelokurov/lmc-ancient-disc}. It includes a list
+of every input with its origin and checksum (\texttt{data/sources.yaml}) and a
+website with a notebook for each figure
+(\url{https://vasilybelokurov.github.io/lmc-ancient-disc/}).
+
+\bibliographystyle{mnras}
+\bibliography{refs}
+
+\bsp
+\label{lastpage}
+\end{document}

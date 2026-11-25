@@ -1,0 +1,1083 @@
+# Every input of the paper: origin, how to get it, and its checksum. lmcold.sources.path(name) refuses a file that differs.
+# tier A = public input (fetch script), B = derived catalogue (build script; Zenodo at release).
+
+ogle4_ident:
+  tier: A
+  file: raw/ogle4/ident.dat
+  origin: OGLE-IV Collection of Variable Stars, LMC RR Lyrae, identifications
+  url: https://www.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/ident.dat
+  fetch: scripts/fetch_ogle4_rrab.py
+  reference: Soszynski et al. 2016, AcA 66, 131
+  sha256: 8f748548eef2c7d15de4bbb16e038543ccaa09755504109270f01b9551a25c74
+
+ogle4_rrab:
+  tier: A
+  file: raw/ogle4/RRab.dat
+  origin: OGLE-IV Collection of Variable Stars, LMC RRab light-curve parameters (I band)
+  url: https://www.astrouw.edu.pl/ogle/ogle4/OCVS/lmc/rrlyr/RRab.dat
+  fetch: scripts/fetch_ogle4_rrab.py
+  reference: Soszynski et al. 2016, AcA 66, 131
+  sha256: aad1d10102604453b8b0de16b5cc27bafa077e1b23a640efaf86da2a215c9279
+
+gaia_rrlyrae_lmc20:
+  tier: A
+  file: gaia_rrlyrae_lmc20.parquet
+  origin: Gaia DR3 vari_rrlyrae joined with gaia_source, within 20 deg of (79.88, -69.59); 40970 rows
+  url: https://gea.esac.esa.int/archive/ (ADQL in the fetch script)
+  fetch: scripts/fetch_gaia_rrlyrae.py
+  reference: Gaia Collaboration, Vallenari et al. 2023, A&A 674, A1; Clementini et al. 2023, A&A 674, A18
+  sha256: d82fabc22d2990793d745c66dbe773e82e9ddb72a12ae39e0e73196602aacf75
+
+# Spectroscopic [Fe/H] of LMC RR Lyrae (static CDS files)
+
+spec_borissova04:
+  tier: A
+  file: raw/spec/J_AA_423_97/macho.dat
+  origin: "Borissova et al. 2004, A&A 423, 97 (MACHO stars: [Fe/H], Harris 1996 scale)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/423/97/macho.dat
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: 346203856651278643bdc48b670170f19966c7f5ec05a7c709c41e42b53c7826
+
+spec_borissova04_readme:
+  tier: A
+  file: raw/spec/J_AA_423_97/ReadMe
+  origin: "CDS ReadMe (column layout)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/423/97/ReadMe
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: 205c265bda29607f29fec03ff3ea6498681b86d1d9f54e7ce8dd0fc10f292d19
+
+spec_borissova06:
+  tier: A
+  file: raw/spec/J_AA_460_459/table9.dat
+  origin: "Borissova et al. 2006, A&A 460, 459 ([Fe/H], Harris 1996 scale)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/460/459/table9.dat
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: 3b3a41b985f036a67fde213d2f0693d534d4278e52197bef90343068f29f5829
+
+spec_borissova06_readme:
+  tier: A
+  file: raw/spec/J_AA_460_459/ReadMe
+  origin: "CDS ReadMe (column layout)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/460/459/ReadMe
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: 1df06996203d0c2f79c85fa43ba55602d269f23dafd2d6d34a41e630d3c050ff
+
+spec_gratton04:
+  tier: A
+  file: raw/spec/J_AA_421_937/table7.dat
+  origin: "Gratton et al. 2004, A&A 421, 937 ([Fe/H], Harris 1996 scale)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/421/937/table7.dat
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: f29c836ee8e118bb5a46f46c860517d30e704f640b00b068ecd6f260d45eb3f0
+
+spec_gratton04_readme:
+  tier: A
+  file: raw/spec/J_AA_421_937/ReadMe
+  origin: "CDS ReadMe (column layout)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/421/937/ReadMe
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: 02641ab1aa2cbdc5a42b3a941c33186b0a4e9616b89b2297d3a5dab4ef84870f
+
+spec_difabrizio05_A:
+  tier: A
+  file: raw/spec/J_AA_430_603/table5.dat
+  origin: "Di Fabrizio et al. 2005, A&A 430, 603: positions of field-A variables"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/430/603/table5.dat
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: b5166911c74aa1ab585cc578d6a589ce24773904f902990561399a142a237911
+
+spec_difabrizio05_B:
+  tier: A
+  file: raw/spec/J_AA_430_603/table6.dat
+  origin: "Di Fabrizio et al. 2005, A&A 430, 603: positions of field-B variables"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/A+A/430/603/table6.dat
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: af72fb25dbba9db4ed3b220dc7a1a83114c61fc56a0ad2d4112387355aa82a8a
+
+spec_simbad_macho:
+  tier: A
+  file: raw/spec/simbad_macho.csv
+  origin: "SIMBAD positions and main identifiers of the star names in Borissova et al. 2004, 2006"
+  url: https://simbad.cds.unistra.fr (astroquery Simbad.query_objects)
+  fetch: scripts/fetch_spec_rrl.py
+  sha256: aadff3299d887c757bc1d46fe16e821e9b57e168a4538de2371dcfda519c877c
+
+
+
+# Public inputs of the giant catalogues (tier A). sha256 to be filled in when the downloads complete (scripts/fetch_giants.py).
+apogee_dr17_allstarlite:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/allStarLite-dr17-synspec_rev1.fits
+  origin: "APOGEE DR17 allStarLite, ASPCAP synspec_rev1 (Abdurro'uf et al. 2022, ApJS 259, 35)"
+  url: https://data.sdss.org/sas/dr17/apogee/spectro/aspcap/dr17/synspec_rev1/allStarLite-dr17-synspec_rev1.fits
+  fetch: scripts/fetch_giants.py
+  sha256: 979592c332f1b82be319c026c42b0b0b9d3089715eb5d1049dfb85f19d9136cb
+
+boss_dr20_bossnet:
+  tier: A
+  file: ~/data/sdss/dr20/astra/0.8.1/astraAllStarBossNet-0.8.1.fits.gz
+  origin: "SDSS-V DR20 Astra 0.8.1 BOSSNet summary (astraAllStarBossNet); release SHA-1 371090ec4cef023f59099926b99a81f2217cf7f8"
+  url: https://data.sdss.org/sas/dr20/spectro/astra/0.8.1/summary/astraAllStarBossNet-0.8.1.fits.gz
+  fetch: scripts/fetch_giants.py
+  sha256: c525696af3b217f81bc7ebc51c21cd6a2e09f2d2459b92feb80c326d1dbc9883
+
+skowron21_table1:
+  tier: A
+  file: raw/skowron21/table1.dat.gz
+  origin: "OGLE-IV red-clump E(V-I) map of the Magellanic Clouds, 81,684 boxes of 3.4-27.5 arcmin; Skowron et al. 2021, ApJS 252, 23 (2021ApJS..252...23S, doi:10.3847/1538-4365/abcb81)"
+  url: https://cdsarc.cds.unistra.fr/ftp/J/ApJS/252/23/table1.dat.gz
+  fetch: scripts/fetch_skowron21.py
+  rows: 81684
+  sha256: bb39dfc854e975aa3ad59226c9780dbb1d1135a3587de5d9139e4addea017184
+
+ogle4_fields_lmc:
+  tier: A
+  file: raw/ogle4/fields-OGLE-IV-LMC.txt
+  origin: "OGLE-IV field centres, LMC (LMC); Udalski et al. 2015, AcA 65, 1"
+  url: https://ogle.astrouw.edu.pl/sky/ogle4-LMC/fields-OGLE-IV-LMC.txt
+  fetch: scripts/fetch_ogle4_fields.py
+  sha256: 285742ac027c2c6cc7b9ab60d0854790ff39d49f03f1567322e20fe023894e7f
+
+ogle4_fields_mbr:
+  tier: A
+  file: raw/ogle4/fields-OGLE-IV-MBR.txt
+  origin: "OGLE-IV field centres, MBR (Magellanic Bridge); Udalski et al. 2015, AcA 65, 1"
+  url: https://ogle.astrouw.edu.pl/sky/ogle4-MB/fields-OGLE-IV-MBR.txt
+  fetch: scripts/fetch_ogle4_fields.py
+  sha256: dc8456892dc89c7dac03fbb1944d3270070c99465399b2b58ccea9ad573a461a
+
+# Release catalogues (tier B: published on Zenodo; rebuilt from the tier-A inputs by the listed scripts)
+
+release_rrab:
+  tier: B
+  file: rrab.parquet
+  origin: "RRab within 20 deg: OGLE-IV + Gaia DR3, [Fe/H], dmu, membership"
+  build: scripts/build_rrab.py
+  sha256: ef5489644ca08418da17a4f1e035472bf364ba6175dcdb9e4021b7867f889ed7
+
+release_giants_apogee:
+  tier: B
+  file: giants_apogee.parquet
+  origin: "APOGEE DR17 giants with Gaia DR3"
+  build: scripts/build_spec_giants.py, scripts/fetch_gaia_giants.py, scripts/build_giants.py
+  sha256: 297884de2c9d9370163c9206bd08c1f55adf263df86215ed09403fe8c5625aa6
+
+release_giants_boss:
+  tier: B
+  file: giants_boss.parquet
+  origin: "SDSS-V DR20 BOSS giants with Gaia DR3, on the APOGEE scale"
+  build: scripts/build_spec_giants.py, scripts/fetch_gaia_giants.py, scripts/build_giants.py
+  sha256: 46da49df3daec174efd63098ef564c317261873a15b20a00edfa398c512d1d3e
+
+# Selection-function catalogues
+release_boss_parent:
+  tier: B
+  file: boss_parent.parquet
+  origin: "Gaia DR3 stars within 12 deg of the LMC passing the rough cuts of mwm_magcloud_rgb_boss, with SFD E(B-V) and `eligible`"
+  build: scripts/build_boss_parent.py
+  sha256: af0607fa5ceb8ad3a46590f3b9944d1ac79c26b2bf7ba0d14b5b9be220ae301b
+
+release_boss_observed:
+  tier: B
+  file: boss_observed.parquet
+  origin: "Eligible BOSS parent stars: observed (spAll-lite), first carton, BOSSNet spectroscopic quality and giant flags"
+  build: scripts/build_boss_observed.py
+  sha256: 643caae8c2e7bb101474dba4349df0b5d9a2e3e834295d642f1f529da85afcfd
+
+release_apogee_parent:
+  tier: B
+  file: apogee_parent.parquet
+  origin: "APOGEE-2 LMC1-35 RGB-polygon candidates (field x star) with Gaia DR3 (2MASS best neighbour), observed flags and allStarLite columns"
+  build: scripts/build_apogee_parent.py
+  sha256: 5b6c0721b8d9ee547dc4acf6b4934785ad1afa02662749619d20b75416199b84
+
+release_boss_weights:
+  tier: B
+  file: boss_weights.parquet
+  origin: "BOSS selection weights per eligible parent star (selection groups, w = N_elig / N_good x pass factor in G x XP [M/H] x ring)"
+  build: scripts/boss_selection.py
+  sha256: d7cdaa4902dcc37b32f0cbc7c8c13eacbcbd1ccf5b3659ae165fba30e10f023c
+
+release_apogee_weights:
+  tier: B
+  file: apogee_weights.parquet
+  origin: "APOGEE selection weights per candidate star (selection groups, coverage, w = N_cand / N_quality x pass factor in H x XP [M/H])"
+  build: scripts/apogee_selection.py
+  sha256: 1f5297aef6d49950f3926a126fe76946e90a9e320f17fef92d867483b6f109e7
+
+# Public targeting inputs of the giant selection functions
+
+sdss5_mwmtargets:
+  tier: A
+  file: ~/data/sdss/dr20/astra/0.8.1/mwmTargets-0.8.1.fits.gz
+  origin: "SDSS-V DR20 Astra 0.8.1 mwmTargets: carton memberships of observed targets (release SHA-1 checked)"
+  url: https://data.sdss.org/sas/dr20/spectro/astra/0.8.1/summary/mwmTargets-0.8.1.fits.gz
+  fetch: scripts/fetch_targeting.py
+  sha256: 010775c68b0a71f557f50359798002f574c85cf65975a8d08b0208686e4a8815
+
+sdss5_spall_lite:
+  tier: A
+  file: ~/data/sdss/dr20/boss/spAll-lite-v6_2_1.fits.gz
+  origin: "SDSS-V DR20 BOSS spAll-lite v6_2_1 (daily): one row per spectrum, with FIRSTCARTON, ASSIGNED, ON_TARGET, VALID, GAIA_ID"
+  url: https://data.sdss.org/sas/dr20/spectro/boss/redux/v6_2_1/summary/daily/spAll-lite-v6_2_1.fits.gz
+  fetch: scripts/fetch_targeting.py
+  sha256: ba1368185014c05c44967dc03abac5c1a5abdd3b0634198b6feabbb9c46ee7fc
+
+apogee_dr17_allvisit:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/allVisit-dr17-synspec_rev1.fits
+  origin: "APOGEE DR17 allVisit: per-visit targeting flags"
+  url: https://data.sdss.org/sas/dr17/apogee/spectro/aspcap/dr17/synspec_rev1/allVisit-dr17-synspec_rev1.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: ff9306aee89b0cd5e60f4e6bcd1e331f286f6b5d99237e6e599ee4443f336c5a
+
+apogee2_field:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Field.fits
+  origin: "APOGEE-2 targeting: field list"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Field.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 0642efba74810e199a7ef57bf56e4f3e2324296dc8912fe8f46a111a997b8afe
+
+apogee2_object_lmc1:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC1.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC1"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC1.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 9b0d3fdc7770cb5714229f24a5332d53f67a57a28707aaabddce2f922f240140
+
+apogee2_object_lmc2:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC2.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC2"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC2.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: c4482eeacf89df6cfab0b0ca8137fa5687682dc4dbdfb39de58f06985a1fa066
+
+apogee2_object_lmc3:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC3.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC3"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC3.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: edcd6d5d6adef6ee7c55aaf49249f64bf18a3a5ba07e6d581ea2fd9516dc7b97
+
+apogee2_object_lmc4:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC4.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC4"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC4.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 45ba98ec5f7655a6578ad1c87f3c5443debd5f64364a4549e1a0a22d6427b725
+
+apogee2_object_lmc5:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC5.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC5"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC5.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 0728ee799d0e33674fb71815817c9d1f9fa39406b1e62c3c600b639014880e4c
+
+apogee2_object_lmc6:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC6.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC6"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC6.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 7765cfcb1ba2a3cbffd1f5229ebde341579adf774e1a99be1f262e00df47e634
+
+apogee2_object_lmc7:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC7.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC7"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC7.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 04415b9f42ecf7385c810572fc386d30da2fb72106938771debaea219ca513c7
+
+apogee2_object_lmc8:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC8.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC8"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC8.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 31c3a8512062d41ecb47c0d60b57034d300221dfb3dd1391e4a200901d207f22
+
+apogee2_object_lmc9:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC9.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC9"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC9.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 78adb481c8381f4dcf0b056a3382a80aab44566926c595b535bd0155547e8a9d
+
+apogee2_object_lmc10:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC10.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC10"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC10.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: b10b6939dbf3778dfc1ff4b8101c656adead39d8ad09a1238fded1c83fc60dbc
+
+apogee2_object_lmc11:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC11.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC11"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC11.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 8443ea2aff3d3cf5247c300aa21b4670ced5ed0f30c19b87647ee33efd0d74f3
+
+apogee2_object_lmc12:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC12.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC12"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC12.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 6ffccec17b533ac0d59893025d9b49c91f0392412f0eb5584370b6b15f52e261
+
+apogee2_object_lmc13:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC13.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC13"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC13.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 2be4b129cd1a4b6b3b40985a5c3cdd137dde1665d06b43f1047a252eb95e8267
+
+apogee2_object_lmc14:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC14.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC14"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC14.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 393b96cc0099283bee5ae6b4f03b0448e314ef6ee2193da115388f6bfbfbb179
+
+apogee2_object_lmc15:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC15.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC15"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC15.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 3c28ab72a72f259efc46ae6a2b6cbce48fe47c59f69e5fb7b6e8a6d6e9583ef7
+
+apogee2_object_lmc16:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC16.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC16"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC16.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: e91c6576154b1b0c756511137605c39ec9c2901d385cd761dd62c94b4dbd7a6d
+
+apogee2_object_lmc17:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC17.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC17"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC17.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 314ad7712c16c165c0acba8aa6dd41f2ef4ed3ec44592dbbfea1cbf9eec94c0d
+
+apogee2_object_lmc18:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC18.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC18"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC18.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 0b8e0909e73afc4671171cf7c88229e4812c6698d704f183ee3e46a6c915016e
+
+apogee2_object_lmc19:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC19.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC19"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC19.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 90ad0da6bb52dec3df34fd2bf99cb4e980c2076db4442c19ff9e7c0000896b97
+
+apogee2_object_lmc20:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC20.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC20"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC20.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: d86e2cdab38c5dd880b5304b0666e29e07ae45d8de9a30ad89e767c835db5dc1
+
+apogee2_object_lmc21:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC21.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC21"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC21.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: ff174a38e5ac827893cd52a310a8f40ea8fcd620b37f34ef70fa3eb7be3db8e1
+
+apogee2_object_lmc22:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC22.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC22"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC22.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: b043ecf1f03ad3f2e7d4e40fc85c227696be05464f4a571abdf9b1077268c679
+
+apogee2_object_lmc23:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC23.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC23"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC23.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: f71af589b371e1960648bda96119e8faf7f36338b95c8af91a9ee86d78345ad8
+
+apogee2_object_lmc24:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC24.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC24"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC24.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 42fa3ff3240aa939a72ae4ef18de170410f0b3137d4a1176906486e53b8a2c8c
+
+apogee2_object_lmc25:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC25.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC25"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC25.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 3d2754a08c042a91ec5cdd59089549036bb6f32f8720fdccaa6ec6178db187b6
+
+apogee2_object_lmc26:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC26.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC26"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC26.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 3e1f078ecc492063ededc140a0179dd8bcd91d2d6d37d1370a18dc907307d025
+
+apogee2_object_lmc27:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC27.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC27"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC27.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 12eca43a06b2705c6278eca992379b37df63c1397f5a1d8b9f874d93440829cf
+
+apogee2_object_lmc28:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC28.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC28"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC28.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 2e0b32ac185d67a0dc73fcac5ee52de3ff18c7aec24c034ac8fd4007082bdaa3
+
+apogee2_object_lmc29:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC29.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC29"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC29.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 8d5a86bcb22fb9f6003cf84d90c5ddb2b389d7d22f67443658380386f8ca3cfd
+
+apogee2_object_lmc30:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC30.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC30"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC30.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: fac2ff5f901da9dd316bda0ff6978389e9beb10745c1768ef72003f8384863a1
+
+apogee2_object_lmc31:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC31.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC31"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC31.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: d58be9e912fbef9db973f7ba2f754461a2a241f5d74d5d834a294a9257a76e72
+
+apogee2_object_lmc32:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC32.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC32"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC32.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 60a99a6dcc299ece11cacc8d6eb73fea4d417155d358b52013a08f4410018266
+
+apogee2_object_lmc33:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC33.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC33"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC33.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 4a7c6ba1b03d7dec8346c947a3a63efc38bad955a86d09a012855b7e204cffc4
+
+apogee2_object_lmc34:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC34.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC34"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC34.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: aacf049965116be1dc4d7b9c9abae5699a650f273fb093daaefc054a346d8f1b
+
+apogee2_object_lmc35:
+  tier: A
+  file: ~/data/sdss/dr17/apogee/target/apogee2Object_LMC35.fits
+  origin: "APOGEE-2 targeting: candidate objects of field LMC35"
+  url: https://data.sdss.org/sas/dr17/apogee/target/apogee2Object/apogee2Object_LMC35.fits
+  fetch: scripts/fetch_targeting.py
+  sha256: 0b4a0e449232eb5ae79b5ec1c2f769f4eefbc7b3f3350508653addadc7726c95
+
+andrae23_table1:
+  tier: A
+  file: ~/data/gaia/andrae2023/table_1_catwise.fits.gz
+  origin: "Andrae, Rix & Chandra (2023, ApJS 267, 8) Table 1: XGBoost [M/H], Teff, log g from Gaia DR3 XP for 175M stars (Zenodo MD5 64c33b28fca90fcea7d59272a970b588 checked)"
+  url: https://zenodo.org/records/7945154/files/table_1_catwise.fits.gz
+  doi: 10.5281/zenodo.7945154
+  fetch: scripts/fetch_andrae23.py
+  sha256: 6fdd44e882de7c66f6fcdce7d5455046388f31e2ddeaae1386d0b2b7a92f084c
+
+mass_mock_conversion:
+  tier: C
+  file: ../results/mass_mock_conversion.csv
+  origin: "Fixed input from an earlier analysis (not rebuilt here): prior A, alpha_mp=0.15, observable BOSS-box giants per solar mass formed. Diagnostic only; low-metallicity isochrones clipped at [M/H]=-2.19. No inferred LMC masses imported."
+  fetch: "fixed input, released in results/"
+  rows: 11
+  sha256: 6a3db00af8a97a16c27da659de32c9b6cd02c4b165994eda0e2a5ec370ae8432
+
+parsec_gaiaEDR3:
+  tier: A
+  file: raw/parsec/gaiaEDR3.parquet
+  origin: "PARSEC v1.2S + COLIBRI S_LMC_08, Kroupa IMF, gaiaEDR3; earlier download checked against a fresh public slice at [M/H]=-1"
+  url: https://stev.oapd.inaf.it/cgi-bin/cmd
+  query: "logage=(8.6,10.13,0.05), MH=(-2.2,0.4,0.1), extinction_av=0; explicit track/passband settings in fetch script"
+  fetch: "scripts/fetch_isochrones.py --system gaiaEDR3"
+  rows: 289596
+  sha256: ff225a4f7e757b8b0b02fa11f08eeb515ca3aab2468e1d32b4cc83df2a353080
+  reference: "PARSEC v1.2S + COLIBRI"
+
+parsec_2mass_spitzer:
+  tier: A
+  file: raw/parsec/2mass_spitzer.parquet
+  origin: "PARSEC v1.2S + COLIBRI S_LMC_08, Kroupa IMF, 2mass_spitzer; earlier download checked against a fresh public slice at [M/H]=-1"
+  url: https://stev.oapd.inaf.it/cgi-bin/cmd
+  query: "logage=(8.6,10.13,0.05), MH=(-2.2,0.4,0.1), extinction_av=0; explicit track/passband settings in fetch script"
+  fetch: "scripts/fetch_isochrones.py --system 2mass_spitzer"
+  rows: 289596
+  sha256: 3bfd9d8b2c337da668c0e4fb0471bfa61add40644dec11922f09df8a340852fb
+  reference: "PARSEC v1.2S + COLIBRI"
+
+
+mass_foreground_reference:
+  tier: C
+  file: ../results/mass_foreground_reference.csv
+  origin: "Fixed input from an earlier analysis (not rebuilt here): in-field Milky Way foreground fractions per [Fe/H] bin (feh_med, f_mw, f_mw_err); transferred reference, not a new weighted membership fit; the transfer sensitivity uses zero and twice the reference amplitude"
+  fetch: "fixed input, released in results/"
+  rows: 11
+  sha256: 853c18630947f8c766d8e2353771fced813578445bb02c5e6a63914b1325a769
+
+rr_mass_clusters_2025:
+  tier: A
+  file: raw/literature/cuevas_otahola2025.html
+  origin: Published-version arXiv HTML; Tables 1 and 3, 10 clusters older than 8 Gyr in their intersection
+  url: https://arxiv.org/html/2411.12741v2
+  fetch: scripts/fetch_rr_mass_literature.py
+  rows: 10
+  reference: Cuevas-Otahola et al. 2025, MNRAS 541, 1434; doi:10.1093/mnras/staf1095
+  sha256: e489d0cadff2590a8bc3a81e76714ed0048b6b069f97069d98186c34796974f2
+
+rr_mass_global_census_2016:
+  tier: A
+  file: raw/literature/ogle2016_rr_census.html
+  origin: OGLE 2016 release summary; two toward-Cloud counts including foreground
+  url: https://ogle.astrouw.edu.pl/cont/4_main/var/ogleiv/rrms/
+  fetch: scripts/fetch_rr_mass_literature.py
+  rows: 2
+  reference: Soszynski et al. 2016, AcA 66, 131; mass references in constants.py
+  sha256: e62725d3ae68ff4c51c46067cceebf70880a68a94593891729921f0a0c4e27a9
+
+# Primary references for the expanded stellar-mass comparison.
+lmc_mass_reference_mazzi2021:
+  tier: A
+  file: raw/literature/mazzi2021.pdf
+  origin: The VMC survey - XLIII. The spatially resolved star formation history across
+    the Large Magellanic Cloud
+  url: https://arxiv.org/pdf/2108.07225
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2021MNRAS.508..245M
+  sha256: 63d649392f6e05b90ef66f77235345d444a253a3c6f6aec43621b7bcb0be959e
+lmc_mass_reference_harris_zaritsky2009:
+  tier: A
+  file: raw/literature/harris_zaritsky2009.pdf
+  origin: The Star Formation History of the Large Magellanic Cloud
+  url: https://arxiv.org/pdf/0908.1422
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2009AJ....138.1243H
+  sha256: 3b8b9db635349e975427a0904737b8b79d2bf215ef18ec0feef41452fcedded5
+lmc_mass_reference_mcconnachie2012:
+  tier: A
+  file: raw/literature/mcconnachie2012.pdf
+  origin: The Observed Properties of Dwarf Galaxies in and around the Local Group
+  url: https://arxiv.org/pdf/1204.1562
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2012AJ....144....4M
+  sha256: c5f8472d0e00565ea695522d1267041082786ecdc1e16e1e3d5f78f578274593
+lmc_mass_reference_vanderMarel2002:
+  tier: A
+  file: raw/literature/vanderMarel2002.pdf
+  origin: New Understanding of Large Magellanic Cloud Structure, Dynamics, and Orbit
+    from Carbon Star Kinematics
+  url: https://arxiv.org/pdf/astro-ph/0205161
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2002AJ....124.2639V
+  sha256: 7058e3cf21bc8ae1c4b209597db2049e330113868c508a787e8f55441179e491
+lmc_mass_reference_eskew2012:
+  tier: A
+  file: raw/literature/eskew2012.pdf
+  origin: Converting from 3.6 and 4.5 μm Fluxes to Stellar Mass
+  url: https://arxiv.org/pdf/1204.0524
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2012AJ....143..139E
+  sha256: 181a3dc25efe7b8e954c8a36076012f00dacec19bfb99f3ecc918c5b4e83ef00
+lmc_mass_reference_skibba2012:
+  tier: A
+  file: raw/literature/skibba2012.pdf
+  origin: The Spatial Distribution of Dust and Stellar Emission of the Magellanic
+    Clouds
+  url: https://arxiv.org/pdf/1210.7812
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2012ApJ...761...42S
+  sha256: 4c27086748b70a12f2321890a377e41f4c6c7bd7089c8d800df5ca4161c2cc8a
+lmc_mass_reference_madau_dickinson2014:
+  tier: A
+  file: raw/literature/madau_dickinson2014.pdf
+  origin: Cosmic Star-Formation History
+  url: https://arxiv.org/pdf/1403.0007
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2014ARA&A..52..415M
+  sha256: 324864fc735b52fa35c6bc8beb920a362edb0d22a7c728bcee064f56a1160a57
+
+lmc_mass_reference_keim2023:
+  tier: A
+  file: raw/literature/keim2023.pdf
+  origin: The large magellanic cloud revealed in gravitational waves with LISA
+  url: https://arxiv.org/pdf/2207.14277
+  fetch: scripts/fetch_lmc_mass_literature.py
+  rows: 1
+  reference: 2023MNRAS.521.1088K
+  sha256: dd710fe8b7ddebfdc2a2455e85a44a565312d2b269cd7958f799ce16b498b917
+
+twomass_centre:
+  tier: A
+  file: twomass_centre.parquet
+  origin: "2MASS Point Source Catalog (Skrutskie et al. 2006, 2006AJ....131.1163S), 12 <= H <= 14 within 5 deg of the LMC centre"
+  url: https://irsa.ipac.caltech.edu/TAP (table fp_psc)
+  fetch: scripts/fetch_twomass_centre.py
+  rows: 259488
+  sha256: abf7f3d50b7b0ad9f0d8074f3043987b2204af3a5e8ff523805700b2ed51f345
+
+clusters_grocholski06:
+  tier: A
+  file: clusters_grocholski06.csv
+  origin: "LMC clusters with Ca II triplet [Fe/H] and radial velocities (Grocholski et al. 2006, 2006AJ....132.1630G)"
+  url: https://vizier.cds.unistra.fr/viz-bin/cat/J/AJ/132/1630
+  fetch: scripts/fetch_clusters.py
+  rows: 29
+  sha256: eb6abf9a0d9a08e73b6e25c5426234c1393fbd8d895844e6a4fda6d5d03fd20f
+
+clusters_gaia:
+  tier: A
+  file: clusters_gaia.parquet
+  origin: "Gaia DR3 sources with G <= 18 within 6 arcmin of each Grocholski et al. (2006) cluster (row order may vary between fetches)"
+  url: https://gea.esac.esa.int/tap-server/tap (gaiadr3.gaia_source)
+  fetch: scripts/fetch_clusters.py
+  rows: 12306
+  sha256: 2123f43cf9c439c02134f3c51bcad79afd652f0f10c7a59e5a128b0c2ea7f35e
+
+mdf_cole05:
+  tier: A
+  file: mdf_cole05.csv
+  origin: "Ca II triplet [Fe/H] (CG97 scale) of 373 LMC bar red giants (Cole et al. 2005, 2005AJ....129.1465C)"
+  url: https://vizier.cds.unistra.fr/viz-bin/cat/J/AJ/129/1465 (fetched from the IDIA mirror)
+  fetch: scripts/fetch_mdf_literature.py
+  rows: 373
+  sha256: d7f4e8decc7dcb12ecab481b0741a3d3ba347f9d3a2b345dc58d50ba8d4e8d1d
+
+mdf_carrera08:
+  tier: A
+  file: mdf_carrera08.csv
+  origin: "Ca II triplet index, V, I and radial velocity of stars in four LMC fields 3-8 deg north of the bar (Carrera et al. 2008, 2008AJ....135..836C; 635 rows in VizieR)"
+  url: https://vizier.cds.unistra.fr/viz-bin/cat/J/AJ/135/836 (fetched from the IDIA mirror)
+  fetch: scripts/fetch_mdf_literature.py
+  rows: 635
+  sha256: 2b588e2857ded8875d48e7dd7e31bcba3e8d847b19a479e7b1bc710a8bb40139
+
+mdf_omkumar25:
+  tier: A
+  file: mdf_omkumar25.parquet
+  origin: "Stroemgren photometric [Fe/H] from Gaia DR3 XP spectra of LMC red giants (Omkumar et al. 2025, 2025A&A...700A..74O, table lmc-rgb)"
+  url: https://vizier.cds.unistra.fr/viz-bin/cat/J/A+A/700/A74 (fetched from the IDIA mirror)
+  fetch: scripts/fetch_mdf_literature.py
+  rows: 214424
+  sha256: c1bb17ba42e956e6b3c8e702e941f4282660741add86b889a464762a42b3562e
+
+# Section 6: simulations
+
+# Simulation snapshots: directory trees read by lmcold.sims (too large to hash; not read through lmcold.sources.path).
+sims_tng50:
+  tier: A
+  file: ~/data/sims/tng/TNG50-1/lmc_analogue_cutouts
+  origin: "TNG50-1 z = 0 star-particle cutouts of all 681 central LMC analogues (bound stellar mass 1.5-5e9 Msun, subhalo mass 5e10-5e11 Msun); sample.json lists the subhaloes"
+  url: https://www.tng-project.org/api/TNG50-1/snapshots/99/subhalos/ (API key required)
+  fetch: scripts/fetch_tng50.py
+  reference: Nelson et al. 2019, MNRAS 490, 3234; Pillepich et al. 2019, MNRAS 490, 3196
+  sha256: null
+
+sims_tng50_birth:
+  tier: A
+  file: ~/data/sims/tng/TNG50-1/lmc_analogue_birth
+  origin: "TNG50-1 z = 0 star-particle cutouts of the same 681 analogues with ParticleIDs, GFM_StellarFormationTime, BirthPos, BirthVel (birth_<id>.hdf5; particles in the order of lmc_analogue_cutouts)"
+  url: https://www.tng-project.org/api/TNG50-1/snapshots/99/subhalos/ (API key required)
+  fetch: scripts/fetch_tng50.py
+  reference: Nelson et al. 2019, MNRAS 490, 3234; Pillepich et al. 2019, MNRAS 490, 3196
+  sha256: null
+
+sims_tng50_progenitors:
+  tier: A
+  file: ~/data/sims/tng/TNG50-1/debate_heating, ~/data/sims/tng/TNG50-1/old_star_tracks, ~/data/sims/tng/TNG50-1/gas_progenitors, ~/data/sims/tng/scramble/TNG50-1, ~/data/sims/tng/TNG50-1/dm_extend
+  origin: "Main progenitors of 60 TNG50-1 analogues (scripts/fetch_tng50_progenitors.py SAMPLE: 11 per quintile of today's old-star v_phi/sigma_z, seed 7, plus the 5 closest to the LMC): SubLink full trees (sublink_<id>.hdf5); star cutouts at every third snapshot 21-99 (<id>/snap_<s>.hdf5); gas cutouts at snapshots 21, 25, 33, 40, 50, 59 (<id>/gas_<s>.hdf5); for 20 of them (FULL) stars, gas and dark matter at every snapshot 21-40 (scramble/TNG50-1/<id>/snap_<s>.hdf5). Dark-matter positions where there is no full cutout (dm_extend/<id>/snap_<s>.hdf5: FULL at 42, 45, 48, 51 with gas positions and masses; the other 40 at every third snapshot 21-51; 518 files, fetched 2026-11-05). A re-download of one file of each product gave identical datasets (2026-11-05)."
+  url: https://www.tng-project.org/api/TNG50-1/ (API key required)
+  fetch: scripts/fetch_tng50_progenitors.py
+  reference: Nelson et al. 2019, MNRAS 490, 3234; Pillepich et al. 2019, MNRAS 490, 3196; Rodriguez-Gomez et al. 2015, MNRAS 449, 49 (SubLink)
+  sha256: null
+
+sims_auriga_l3:
+  tier: A
+  file: ~/data/sims/auriga/level3/Halos_1e11msol
+  origin: "Auriga dwarf-galaxy zooms, level 3: halo_2, 8, 9, 10, 11; z = 0 (snapshot 251) with BirthPos/BirthVel and lists/accretedstardata (in-situ / ex-situ star IDs); the early full snapshots 050-090 and star-only outputs snapdir_highfreqstars_280-1200 (scripts/auriga_scramble.py)"
+  url: "https://wwwmpa.mpa-garching.mpg.de/auriga/data.html (Globus collection 'The Auriga Simulations', 02a2dbb8-f64d-4440-bafe-44b60b964501)"
+  fetch: scripts/fetch_auriga.py
+  reference: Grand et al. 2024, MNRAS 532, 1814
+  sha256: "per file: data/checksums/sims_auriga_l3.sha256 (the files lmcold.sims and scripts/auriga_scramble.py read)"
+
+sims_fire2:
+  tier: A
+  file: ~/data/sims/fire
+  origin: "FIRE-2 public release, z = 0 (snapshot 600) of m11d, m11e, m11h at 7100 Msun, with track/host_coordinates.hdf5"
+  url: "https://flathub.flatironinstitute.org/fire (files from https://users.flatironinstitute.org/~mgrudic/fire2_public_release/core)"
+  fetch: scripts/fetch_fire2.py
+  reference: Wetzel et al. 2023, ApJS 265, 44
+  sha256: "per file: data/checksums/sims_fire2.sha256 (output/snapshot_600.hdf5 and track/host_coordinates.hdf5 of each run)"
+
+sims_concerto_halo104:
+  tier: A
+  file: ~/data/sims/concerto/central/groups/carnegie_poc/enadler/zoomins/Halo104
+  origin: "SIDM Concerto Halo104 (an LMC-mass host), CDM (output_32K) and GroupSIDM (output_GroupSIDM_32K, sigma_0/m = 147 cm^2/g, w = 120 km/s) from the same initial conditions, dark matter only: z = 0 snapshot 235 (16 Gadget format-1 files) and Rockstar+consistent-trees catalogues; each tar checked against its Zenodo md5"
+  url: https://doi.org/10.5281/zenodo.14933624
+  fetch: scripts/fetch_concerto.py
+  reference: Nadler, Kong, Yang & Yu 2025, ApJ 991 (arXiv:2503.10748)
+  sha256: null
+
+sims_concerto_halo104_highz:
+  tier: A
+  file: ~/data/sims/concerto/highz
+  origin: "The same runs at z = 4, 3, 2, 1.5 (snapshots 109, 126, 149, 163; header and positions only) and their Rockstar hlists. Not public: available from the simulation authors on request (a Globus collection; scripts/fetch_concerto.py reads its id from CONCERTO_HIGHZ_GLOBUS)"
+  url: "on request from the simulation authors"
+  fetch: scripts/fetch_concerto.py
+  reference: Nadler, Kong, Yang & Yu 2025, ApJ 991 (arXiv:2503.10748)
+  sha256: null
+
+research_suites_early:
+  tier: C
+  file: results/research/{auriga_early_hist, auriga_early_coh, auriga_stageD_rules, fire_early_birth, fire_early_hist, fire_early_coh}.csv
+  origin: "Our measurements on the public Auriga level-3 and FIRE-2 releases (definitions as Fig. sims_heating): Auriga early formation from the star-only high-cadence outputs (cohort kinematics, orbital-plane coherence; auriga_stageD_rules: losses per cohort and variant of the gravity); FIRE-2 m11d/e/h early formation (birth kinematics from track/host_coordinates.hdf5, cohort kinematics, coherence). Release scripts: docs/release_plan.md item 5.2."
+  reference: Grand et al. 2024, MNRAS 532, 1814 (Auriga); Wetzel et al. 2023, ApJS 265, 44 (FIRE-2)
+  sha256: "per file: auriga_early_hist 2a7761a0f65c3b5ce699c9c4b79e70b4a97d05c4fa1d243db3a551c1b8ac8ac2, auriga_early_coh 055fb8b475b02a2ee66de8700d5b52231d1f490c7dc449b2c4eb9d4a0d8410c2, auriga_stageD_rules 02562a922bb6096703d765b30390a0553c250d71c7c9a039118af264b79cea3a, fire_early_birth a63dd78001e7a38af67369cd457805c7b060dacf920fc75852ed9c908b8a6f17, fire_early_hist 80f4d515df4abc05888e237c53f4a581cbb263f8251e527c4bf4e45aa4424d43, fire_early_coh 9b1238f1090cf031699622ce2f4b9def33be287588a7bccc92af801ed92b6a8a"
+
+# Derived files read by the released scripts (registered 2026-11-22, plan item 5.1)
+
+release_spec_giants:
+  tier: B
+  file: spec_giants.parquet
+  origin: "APOGEE DR17 and SDSS-V DR20 BOSS spectra of LMC giant candidates before the Gaia match"
+  build: scripts/build_spec_giants.py
+  rows: 111424
+  sha256: fdda95c4359fa6805ec3809f3f74b8c52cc8bc0ccad3bed888c93830ee9ddb06
+
+release_gaia_giants:
+  tier: B
+  file: gaia_giants.parquet
+  origin: "Gaia DR3 astrometry of the spectroscopic giants"
+  build: scripts/fetch_gaia_giants.py
+  rows: 105018
+  sha256: 1eba3606e8a90e1ecd9b631de1d4b43ba4d282a2e08966b94289f867c59e71e5
+
+release_giants_overlap:
+  tier: B
+  file: giants_overlap.parquet
+  origin: "Giants with both APOGEE and BOSS spectra (BOSS calibration)"
+  build: scripts/build_giants.py
+  rows: 2097
+  sha256: d0cc0bd0a7d5e109755e089a197003b4dc8076e6de8bd9c407101e353c8fe4ac
+
+release_giant_foreground:
+  tier: B
+  file: giant_foreground.parquet
+  origin: "Milky Way foreground model per giant, from the mass analysis"
+  build: scripts/build_giant_mass.py
+  rows: 57557
+  sha256: 54f6a9a4ac3cace0e318733f50b58c9b4871c9f3b1df1b78ca9912c429fd6093
+
+release_xp_andrae:
+  tier: B
+  file: xp_andrae.parquet
+  origin: "Andrae et al. 2023 Gaia XP [M/H] of the selection-function parents"
+  build: scripts/build_xp_andrae.py
+  rows: 616067
+  sha256: 7cc1316779938346e2f73b0692686c00bc937d0b548d28593a20dbf7eb2800a8
+
+release_boss_cartons:
+  tier: B
+  file: boss_cartons.parquet
+  origin: "SDSS-V carton memberships and priorities of the BOSS parent stars (targetdb 2.0.0)"
+  build: scripts/build_boss_cartons.py
+  rows: 558909
+  sha256: 1364cd0445c67d0b25874e10cae3310699b57d0d6a462987e2027830d915ef57
+
+release_parent_extinction_cells:
+  tier: B
+  file: parent_extinction_cells.parquet
+  origin: "2MASS giant counts of the BOSS parent cells, cached by the extinction check"
+  build: scripts/paper_parent_extinction.py
+  rows: 19334
+  sha256: 1939527a55ad4d8c53f91a6dc462fba06c12c8c1510fc12817217e300e3019f1
+
+release_kin_mcmc_ellipsoid:
+  tier: B
+  file: kin_mcmc_data_ellipsoid_samples.npz
+  origin: "Posterior samples of the ellipsoid kinematic fit, giants 2-9 deg (NUTS)"
+  build: "scripts/fit_kinematics_mcmc.py data ellipsoid"
+  sha256: 225aab8554443dbf507f3e775bc65b09e047813a4d9c5d00a372cd501afd6513
+
+release_kin_mcmc_ellipsoid_outer:
+  tier: B
+  file: kin_mcmc_data_ellipsoid_outer_samples.npz
+  origin: "Posterior samples of the ellipsoid kinematic fit, RR Lyrae 4-9 deg (NUTS)"
+  build: "scripts/fit_kinematics_mcmc.py data ellipsoid outer"
+  sha256: cd878a0394c3c17e411e64ba20b468c408f60627325eb1fdb75f8ad9f56deb90
+
+release_kin_mcmc_stream:
+  tier: B
+  file: kin_mcmc_data_stream_samples.npz
+  origin: "Posterior samples of the sky-aligned kinematic fit, 2-9 deg (NUTS)"
+  build: "scripts/fit_kinematics_mcmc.py data stream"
+  sha256: c32d0da2631793385159f77d91837a548f2fa7beed0be6a55a9fe0ae715876a9
+
+release_kin_mcmc_stream_outer:
+  tier: B
+  file: kin_mcmc_data_stream_outer_samples.npz
+  origin: "Posterior samples of the sky-aligned kinematic fit, RR Lyrae 4-9 deg (NUTS)"
+  build: "scripts/fit_kinematics_mcmc.py data stream outer"
+  sha256: feb7b210bc290ee2938e41fe06907976a37f972a0086e8643356cbd544ae5a43
+
+sdss5_targetdb_mos_carton:
+  tier: A
+  file: ~/data/sdss/dr20/targetdb/mos_carton.parquet
+  origin: "SDSS-V DR20 targeting database (targetdb 2.0.0), table mos_carton"
+  url: https://data.sdss.org/sas/dr20/mos/target/2.0.0/
+  fetch: scripts/fetch_targetdb.py
+  sha256: 4bfdd47fcfacd1034e89bd3b7ec208cd7c40707fdd708cdbd9793407d665c6b7
+
+sdss5_targetdb_mos_carton_to_target:
+  tier: A
+  file: ~/data/sdss/dr20/targetdb/mos_carton_to_target.parquet
+  origin: "SDSS-V DR20 targeting database (targetdb 2.0.0), table mos_carton_to_target"
+  url: https://data.sdss.org/sas/dr20/mos/target/2.0.0/
+  fetch: scripts/fetch_targetdb.py
+  sha256: dfd413eb8e1b3228c95a4056d03b94dbaa6f1c8efb882ec792010fadd013560e
+
+sdss5_targetdb_mos_target:
+  tier: A
+  file: ~/data/sdss/dr20/targetdb/mos_target.parquet
+  origin: "SDSS-V DR20 targeting database (targetdb 2.0.0), table mos_target"
+  url: https://data.sdss.org/sas/dr20/mos/target/2.0.0/
+  fetch: scripts/fetch_targetdb.py
+  sha256: abc4c7642caa92043bf30555fe9122296c2abd3f47ae529c8ad586907e753739
+
+sdss5_targetdb_mos_catalog_to_gaia_dr3_source:
+  tier: A
+  file: ~/data/sdss/dr20/targetdb/mos_catalog_to_gaia_dr3_source.parquet
+  origin: "SDSS-V DR20 targeting database (targetdb 2.0.0), table mos_catalog_to_gaia_dr3_source"
+  url: https://data.sdss.org/sas/dr20/mos/target/2.0.0/
+  fetch: scripts/fetch_targetdb.py
+  sha256: 69dcaba970aa181f21b8ee84c8f5fb31075b46e370244ce2ba8eeaedb99aea7a
+
+sdss5_targetdb_mos_xpfeh_gaia_dr3:
+  tier: A
+  file: ~/data/sdss/dr20/targetdb/mos_xpfeh_gaia_dr3.parquet
+  origin: "SDSS-V DR20 targeting database (targetdb 2.0.0), table mos_xpfeh_gaia_dr3"
+  url: https://data.sdss.org/sas/dr20/mos/target/2.0.0/
+  fetch: scripts/fetch_targetdb.py
+  sha256: 17870dba72ea854775b1390631c9646fe9c64d9412194c9e9cc73116cc1aa85e
+
+sfd_dust_map:
+  tier: A
+  file: ~/data/dustmaps/sfd/SFD_dust_4096_ngp.fits, ~/data/dustmaps/sfd/SFD_dust_4096_sgp.fits
+  origin: "Schlegel, Finkbeiner & Davis (1998) dust map, read through the dustmaps package (SFDQuery) by scripts/paper_mdf_literature.py and scripts/build_boss_parent.py; the location is set in ~/.dustmapsrc (data_dir)"
+  url: https://dataverse.harvard.edu/dataverse/sfd
+  fetch: "python -c 'import dustmaps.sfd; dustmaps.sfd.fetch()'"
+  reference: Schlegel, Finkbeiner & Davis 1998, ApJ 500, 525
+  sha256: "per file: SFD_dust_4096_ngp.fits 50b6aaad0b880762d0fd081177802dcc17c39d7044a410dd5649e2dfd0503e97, SFD_dust_4096_sgp.fits 84891a59054adab44a7be54051e4dcf0e66e3f13eee0d845ce3739242f553b83"
+
+release_kin_vc_drift_vectors:
+  tier: B
+  file: kin_vc_drift_ext_vectors.npz
+  origin: "Fitted parameter vectors of the free and shared-v_c + drift joint fits of the giant bins (and their variants)"
+  build: scripts/kin_vc_drift_extensions.py
+  sha256: 7a84cadc41d4f70e7f7f419a3453f62a95fc3fb7de6dcf60132c13e7182e5e2d
+
+release_sims_observe_parts:
+  tier: B
+  file: sims_observe_parts
+  origin: "The mock observation and fit of each simulated analogue, one table per analogue (scripts/sims_observe.py workers), merged into results/sims_observed.csv"
+  build: scripts/sims_observe.py
+  sha256: "per file: data/checksums/sims_observe_parts.sha256"
+
+# Results made by runs outside the run log (fits and mock tests of minutes to hours): the command that writes each file
+# (tier C, in results/; read by scripts/build_release.py and the data tables of kb/make_notebooks.py).
+result_kin_mcmc_ellipsoid:
+  tier: C
+  file: ../results/kin_mcmc_data_ellipsoid.csv
+  origin: "posterior summary of the joint kinematic fit (velocity ellipsoid), 2-9 deg; MCMC"
+  build: "python scripts/fit_kinematics_mcmc.py data ellipsoid"
+  sha256: 60ab74228c5b1e39faf02cc1c447109b3eab75213d0bac6c18d95f920a2099c8
+
+result_kin_mcmc_ellipsoid_outer:
+  tier: C
+  file: ../results/kin_mcmc_data_ellipsoid_outer.csv
+  origin: "the same fit at 4-9 deg; MCMC"
+  build: "python scripts/fit_kinematics_mcmc.py data ellipsoid outer"
+  sha256: 70edf4eb026415d4adf7a674f986351fc6181f88605dd20b760b8e849e981ef5
+
+result_kin_mcmc_stream:
+  tier: C
+  file: ../results/kin_mcmc_data_stream.csv
+  origin: "posterior summary of the sky-aligned dispersion model with m = 2 streaming, 2-9 deg; MCMC"
+  build: "python scripts/fit_kinematics_mcmc.py data stream"
+  sha256: 7a4539e8f4dddb1c827c533771d7003fb973204b080e2ba7d82fea3fd74731ab
+
+result_kin_mcmc_stream_outer:
+  tier: C
+  file: ../results/kin_mcmc_data_stream_outer.csv
+  origin: "the same fit at 4-9 deg; MCMC"
+  build: "python scripts/fit_kinematics_mcmc.py data stream outer"
+  sha256: 96a0f114c513b32240562f61a5c14b769ae9b33ae2436997583aabbd0343f250
+
+result_kin_mcmc_centre:
+  tier: C
+  file: ../results/kin_mcmc_data_centre.csv
+  origin: "posterior summary of the free-centre model; MCMC"
+  build: "python scripts/fit_kinematics_mcmc.py data centre"
+  sha256: 58108a78f3cd2544a4641559d3530d874df44614b79d734a722244d2c7a53bd2
+
+result_boss_mock:
+  tier: C
+  file: ../results/boss_mock.json
+  origin: "mock tests of the BOSS selection function"
+  build: "python scripts/boss_mock.py"
+  sha256: 1befc252fa3eeef96029c8356c2b8f738e1bec2734598727ec5fc213bddbccb1
+
+result_density_centre:
+  tier: C
+  file: ../results/density_centre.csv
+  origin: "density centres of the giant samples"
+  build: "python scripts/fig_density_centre.py"
+  sha256: 43d87f85641a520f731294edb63624bcd566effee195ed58a2ff4b0a69abd0aa
+
+result_kin_los_scale:
+  tier: C
+  file: ../results/kin_los_scale.csv
+  origin: "fits with a free scale of the line-of-sight velocities"
+  build: "python scripts/fig_kin_los_scale.py"
+  sha256: d7ce32c717539180f082f9adea1a31a205b9e6426101aea87cea4c695ee98c22
+
+result_kin_tilted_ring:
+  tier: C
+  file: ../results/kin_tilted_ring.csv
+  origin: "tilted-ring fits per radius"
+  build: "python scripts/fig_kin_tilted_ring.py"
+  sha256: 6fbbebb03e76b46c2e7571aa9524bc125dda38db2d7ae5891a09342907047b38
+
+result_kin_turning:
+  tier: C
+  file: ../results/kin_turning.csv
+  origin: "fits of the turning-disc model"
+  build: "python scripts/fig_kin_turning.py"
+  sha256: 734465510ae5d66ed4c08145c4e39d22262628aba5bd4dcb7d40c5561aa98496
+
+result_kin_vc_drift_rrl:
+  tier: C
+  file: ../results/kin_vc_drift_rrl.csv
+  origin: "RR Lyrae rotation predicted by the shared-v_c + drift model and measured"
+  build: "python scripts/kin_vc_drift.py"
+  sha256: 7c65cb60fe298b10033fab3d3dac3f0d8d61bc7b694fd007f575664b06ce2a5a
+
+result_kin_vc_drift_deficit:
+  tier: C
+  file: ../results/kin_vc_drift_deficit.csv
+  origin: "log-likelihood deficit of the shared-v_c + drift model per bin"
+  build: "python scripts/kin_vc_drift_extensions.py"
+  sha256: 2f35b1a49dfe60e4d5c9121bd0024739ad0eba2d4b3c1d2cb3d54765f179244e
+
+result_rrab_feh_transform:
+  tier: C
+  file: ../results/rrab_feh_transform.csv
+  origin: "RR Lyrae [Fe/H] scale transformation"
+  build: "python scripts/fig_rrab_feh_transform.py"
+  sha256: 899e9c71b640d833f546e71aacefddcd8c54ca9c2fcb03092a84e7269960dd47
+
+result_rrab_independence:
+  tier: C
+  file: ../results/rrab_independence.csv
+  origin: "completeness of the OGLE-IV and Gaia RR Lyrae catalogues and their union"
+  build: "python scripts/check_rrab_independence.py"
+  sha256: 335dda560cf945ef46de2dce80f61179bd2639a70121ac19a8e26cf0710953d5
+
+result_rrab_membership:
+  tier: C
+  file: ../results/rrab_membership.csv
+  origin: "RR Lyrae foreground fraction per ring"
+  build: "python scripts/fig_rrab_membership.py"
+  sha256: dd0e6876030d8eb3ecc8875f9d1f3fba9c69701d50a4a752c8e37c11bd4fabf0
+
+result_shape_rrl_cells:
+  tier: C
+  file: ../results/shape_rrl_cells.csv
+  origin: "oblate-model fits of the RR Lyrae sky cells"
+  build: "python scripts/shape_rrl_cells.py"
+  sha256: 2a96b517aefd255acd30f6c034e37a9da74f6a0bd124dd24d3bc3de5b608a14d
+
+result_shape_rrl_depth:
+  tier: C
+  file: ../results/shape_rrl_depth.csv
+  origin: "axis ratio from the RR Lyrae depth gradient at the inclination of the motions"
+  build: "python scripts/shape_rrl_cells.py"
+  sha256: 68bfd215069b8ee2f2679006fd84aae4a02ecd2461a47b2fc929ee864fb39a08
+
+result_shape_rrl_triaxial:
+  tier: C
+  file: ../results/shape_rrl_triaxial.csv
+  origin: "oblate fits of mocks elongated in their plane"
+  build: "python scripts/shape_rrl_triaxial.py"
+  sha256: 7adcee01a157dca4d20dbb66a99d77ad44ca0485ff9a35705b008cece1e8e03e
+
+result_shape_virial:
+  tier: C
+  file: ../results/shape_virial.csv
+  origin: "axis ratio implied by the motions (tensor virial theorem) per giant bin and potential"
+  build: "python scripts/shape_virial.py"
+  sha256: b6e50dfbd35c07478059240e8a2e3cff590ffe723c454d63a4b797999804a9b9
+result_boss_calibration:
+  tier: C
+  file: ../results/boss_calibration.json
+  origin: "calibration of the BOSS [Fe/H] and velocities to APOGEE on the stars observed by both"
+  build: "python scripts/build_giants.py"
+  sha256: ba54aec09a02a5df0ff577de1d60588fc065d3e8ea455d76d128bf5951e5a4d7
