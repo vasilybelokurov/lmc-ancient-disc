@@ -26,24 +26,23 @@ $^{1}$Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge
 \maketitle
 
 \begin{abstract}
-We measure the rotational support of the stars of the Large Magellanic
-Cloud (LMC) as a function of metallicity, from the three-dimensional
-velocities of red giants with APOGEE and SDSS-V spectra and
-\textit{Gaia} proper motions. The LMC is a rotating disc at every
-metallicity, and its RR Lyrae are consistent with this: its giants with
+We measure the rotational support of the Large Magellanic Cloud's
+(LMC) stars against metallicity, from the three-dimensional velocities
+of APOGEE and SDSS-V red giants with \textit{Gaia} proper motions. The LMC is a rotating disc at every
+metallicity, and its RR Lyrae are consistent with this. Its giants with
 $\feh<\ltFehA$ have $v_{\rm rot}/\sigma_z\approx\ltKinRatioMP$, and even
 those with $\feh<\ltLowFeh$ have $\ltLowRatioLo<v_{\rm rot}/\sigma_z<\ltLowRatioHi$.
-The LMC had this disc when it had formed at most $\sim\ltEarlyMass$\Msun\ of stars, some
-\ltEarlyRatio\ times less than the stellar mass above which stable
-discs emerge in most simulations. None of the LMC analogues in the TNG50,
-Auriga and FIRE-2 simulations matches the rotational support of its oldest stars. In TNG50
+The LMC had this disc after forming at most $\sim\ltEarlyMass$\Msun\ of stars, some
+\ltEarlyRatio\ times below the mass at which stable
+discs emerge in most simulations. No LMC analogue in TNG50,
+Auriga or FIRE-2 matches the rotational support of its oldest stars. In TNG50
 and Auriga these stars are born rotating but halve their rotation
 within one orbital period and lose most of it within two: torques from
 the aspherical, misaligned dark-matter halo scramble their orbits. Discs survive only once
-the halo's minor axis aligns with the disc's spin and the halo becomes
+the halo's minor axis aligns with the disc's spin and it becomes
 rounder, after the LMC's oldest stars formed. In a self-interacting
 dark-matter resimulation of an LMC-mass halo, the inner halo is
-already round at $z\approx\ltSiZFirst$, which could let early discs
+already nearly round at $z\approx\ltSiZFirst$, which could let early discs
 survive.
 \end{abstract}
 
@@ -102,8 +101,8 @@ mergers \citep{Geda2026}.
 Kinematic studies of galaxies at high redshift are at present limited
 to their gas.
 Ionised and cold gas give different rotational support
-\citep{Simons2016,Rizzo2020,Girard2021,deGraaff2024,Rizzo2024,Rowland2024,Kohandel2024,Danhaive2025},
-and a rotating gas disc need not leave a coherently rotating stellar
+\citep{Simons2016,Rizzo2020,Girard2021,deGraaff2024,Rizzo2024,Rowland2024,Kohandel2024,Danhaive2025}.
+A rotating gas disc also need not leave a coherently rotating stellar
 disc: stars form with less rotational support than their gas, and if
 the gas disc changes its orientation, stars born at different times do
 not share one rotation \citep{ElBadry2018,Zeng2024,Kohandel2025}.
@@ -274,8 +273,9 @@ What matters for disc formation is the mass the LMC had when these
 stars were born. Below $\feh=\ltFehA$ the LMC formed
 $\ltEarlyMass$\Msun\ of stars (16th--84th percentiles
 \ltEarlyMassLo--$\ltEarlyMassHi\times10^{\ltEarlyExp}$\Msun;
-Fig.~\ref{fig:data}b), an upper limit on its stellar mass when its most
-metal-poor giants formed: about \ltEarlyRatio\ times less than the
+Fig.~\ref{fig:data}b), and below $\feh=\ltLowFeh$ only $\sim\ltLowMass$\Msun.
+These are upper limits on its stellar mass when its most
+metal-poor giants formed. The first is about \ltEarlyRatio\ times less than the
 $2\times10^9$\Msun\ at which a simulated Milky Way progenitor forms its
 disc, even with a resolved cold ISM \citep{Semenov2025a}, and
 \ltEarlyRatioMW\ times less than the Milky Way had formed when it spun
@@ -609,10 +609,9 @@ available from the {\it Gaia} archive (\url{https://gea.esac.esa.int/archive/}),
 APOGEE DR17 and the SDSS-V DR20 BOSS spectra from the SDSS
 (\url{https://www.sdss.org}), and the OGLE-IV RR Lyrae catalogues from the OGLE
 archive (\url{https://ogle.astrouw.edu.pl}). The TNG50, Auriga and FIRE-2
-simulations are public \citep{Nelson2019release,Grand2024,Wetzel2023}. The
-$z=0$ snapshot of SIDM Concerto Halo104 is public \citep{Nadler2025}; its
-snapshots at $z>0$ were provided by E.~Nadler and are available from the
-Concerto authors on request. The derived catalogues (the cross-matched giant
+simulations are public \citep{Nelson2019release,Grand2024,Wetzel2023}. This work used data from SIDM Concerto \citep{Nadler2025}. The SIDM Concerto
+data is publicly available on Zenodo at DOI 10.5281/zenodo.14933624
+\citep{Nadler2025data}. The derived catalogues (the cross-matched giant
 and RR Lyrae samples with their selection weights) and the posterior samples of
 the kinematic fits are at \url{https://doi.org/10.5281/zenodo.24447285}. The code that
 makes every figure, table and number of this Letter is at

@@ -146,6 +146,35 @@ def data_used(name):
                                          '|---|---|---|\n' + '\n'.join(rows))
 
 
+def bundle_table():
+    """Markdown table of the files of Zenodo bundle 1, generated, not typed: the files are the data/ files that the logged runs
+    read or write (results/manifest.yaml, as scripts/build_bundle.py packs them); what each holds and what makes it come from its
+    entry of data/sources.yaml ('origin', 'build' or 'fetch'); the scripts of this site that read it, from the run log.
+    The per-analogue files of scripts/sims_observe.py share one row."""
+    man = yaml.safe_load((ROOT / 'results/manifest.yaml').read_text())
+    src = yaml.safe_load((ROOT / 'data/sources.yaml').read_text())
+    by_file = {str(e['file']): e for e in src.values()}
+    files = sorted({f[5:] for e in man.values() for f in [*e['inputs'], *e['outputs']]
+                    if f.startswith('data/') and '#' not in f and not f.startswith(('data/sources.yaml', 'data/raw/literature/'))})
+    shown = {n for page in PAGES for n, _ in MARK.findall((KB / page).read_text())}   # scripts shown on this site
+    groups = {}   # entry file (a file, or a folder of per-analogue files): its bundle files
+    for f in files:
+        key = f if f in by_file else next(k for k in by_file if f.startswith(k.rstrip('/') + '/'))
+        groups.setdefault(key, []).append(f)
+    rows = []
+    for key, members in groups.items():
+        e = by_file[key]
+        maker = e.get('build') or e.get('fetch', '')
+        # Scripts shown on this site whose logged runs read the file(s), without the one that writes them
+        readers = sorted({c.split()[0] for c, r in man.items() if set(r['inputs']) & {'data/' + f for f in members}} & shown -
+                         {Path(maker.split()[0]).name if maker else ''})
+        name = f'`{key}`' + (f' ({len(members)} files)' if len(members) > 1 else '')
+        read = ', '.join(f'`{r}`' for r in readers[:5]) + (f' and {len(readers) - 5} more' if len(readers) > 5 else '')
+        rows.append(f'| {name} | {e["origin"]} | `{maker}` | {read or "–"} |')
+    return ('| File in `data/` | What it holds (`data/sources.yaml`)  Made by | Read by |\n|---|---|---|---|\n' +
+            '\n'.join(rows))
+
+
 def script_cells(name, captions, level=2, show=None):
     """Notebook cells of scripts/<name>: the module docstring as a collapsed note, then its '# %%' cells (main block at top level),
     each code cell that saves a figure followed by that figure and its caption (from `captions`, {stem: text}). The script's step
@@ -204,7 +233,7 @@ def script_cells(name, captions, level=2, show=None):
 def build(page):
     """Write kb/notebooks/<page>.ipynb. A figure saved by a script of the page is shown with its caption, from whichever page
     captions it."""
-    nb = jupytext.read(KB / page, fmt='md:myst')
+    nb = jupytext.reads((KB / page).read_text().replace('<!-- bundle 1 table -->', bundle_table()), fmt='md:myst')
     fill, num = filler()
     source = (KB / page).read_text()
     cited = {(KIND[k], n) for k, n in REF.findall(source)}

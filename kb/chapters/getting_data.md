@@ -36,6 +36,12 @@ a member that is not listed, has another checksum or would land outside `data/` 
 overwritten by a file that fails its check. The first cell of every notebook of this site runs this script when the catalogues are
 missing.
 
+The table below lists the files of bundle 1; it is generated from `data/sources.yaml` and the run log, not typed. The row
+`sims_observe_parts` holds the per-analogue pieces that `scripts/sims_observe.py` merges into `results/sims_observed.csv`; the
+repository already holds that table, so the figures do not read the pieces.
+
+<!-- bundle 1 table -->
+
 <!-- script: fetch_release.py show: network access to Zenodo; bundle 1 is about 250 MB (docs/release.md) -->
 
 ### The full route: the public archives
