@@ -25,4 +25,6 @@ parts:
       - file: notebooks/chapters/shape
       - file: notebooks/chapters/sims_analogues
       - file: notebooks/chapters/sims_evolution
+  - caption: Reference
+    chapters:
       - file: notebooks/chapters/getting_data
