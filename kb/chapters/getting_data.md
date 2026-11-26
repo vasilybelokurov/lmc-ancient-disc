@@ -132,8 +132,8 @@ reddening of the BOSS parent in the test of extinction.
 ### Spectroscopic metallicities of RR Lyrae
 
 The photometric metallicities of the RR Lyrae are compared with spectroscopic ones: [Gratton et al. (2004)](https://doi.org/10.1051/0004-6361:20035840),
-with positions from [Di Fabrizio et al. (2005)](http://vizier.nao.ac.jp/ftp/J/A+A/430/603/), and
-[Borissova et al. (2004](https://doi.org/10.1051/0004-6361:20034494), [2006)](http://vizier.nao.ac.jp/ftp/J/A+A/460/459/), whose
+with positions from [Di Fabrizio et al. (2005)](https://doi.org/10.1051/0004-6361:20041659), and
+[Borissova et al. (2004](https://doi.org/10.1051/0004-6361:20034494), [2006)](https://doi.org/10.1051/0004-6361:20054132), whose
 stars are located through SIMBAD.
 
 <!-- script: fetch_spec_rrl.py show: network access to CDS and SIMBAD -->
