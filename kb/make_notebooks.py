@@ -171,7 +171,7 @@ def bundle_table():
         name = f'`{key}`' + (f' ({len(members)} files)' if len(members) > 1 else '')
         read = ', '.join(f'`{r}`' for r in readers[:5]) + (f' and {len(readers) - 5} more' if len(readers) > 5 else '')
         rows.append(f'| {name} | {e["origin"]} | `{maker}` | {read or "–"} |')
-    return ('| File in `data/` | What it holds (`data/sources.yaml`)  Made by | Read by |\n|---|---|---|---|\n' +
+    return ('| File in `data/` | What it holds (`data/sources.yaml`) | Made by | Read by |\n|---|---|---|---|\n' +
             '\n'.join(rows))
 
 

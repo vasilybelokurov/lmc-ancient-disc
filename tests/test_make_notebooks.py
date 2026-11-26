@@ -116,3 +116,11 @@ def test_second_figure_on_a_letter_page_gets_a_letter(tmp_path, monkeypatch):
     monkeypatch.setattr(mn, 'KB', tmp_path / 'kb')
     monkeypatch.setattr(mn, 'PAGES', {'letter/f4.md': 'Letter 4'})
     assert mn.numbers() == {('Figure', 'main'): '4', ('Figure', 'demo'): '4b'}
+
+
+def test_bundle_table_rows_have_as_many_columns_as_its_header():
+    """A header with a missing '|' turns the table into plain text on the site (2026-11-25)."""
+    import re
+    lines = [line for line in mn.bundle_table().splitlines() if line.startswith('|')]
+    cells = {len(re.sub(r'`[^`]*`', 'x', line).split('|')) for line in lines}   # code spans may hold no '|', but be safe
+    assert len(lines) > 2 and len(cells) == 1, cells
